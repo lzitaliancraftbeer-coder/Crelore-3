@@ -192,6 +192,17 @@
   </div>
 </footer>
 
+<div id="cookie-banner" class="cookie-banner">
+  <p>
+    Utilizziamo cookie per migliorare l'esperienza. 
+    <a href="cookie-policy.html">Leggi la Cookie Policy</a>
+  </p>
+  <div class="cookie-buttons">
+    <button onclick="acceptCookies()">Accetta</button>
+    <button onclick="rejectCookies()">Rifiuta</button>
+  </div>
+</div>
+
 <script>
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
