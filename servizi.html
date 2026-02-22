@@ -11,22 +11,20 @@
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 
-<header class="navbar glass">
-  <div class="container nav-inner">
-    <div class="logo">
-      <div class="logo-box">C</div>
-      CRE<span>LORE</span>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="contatti.html" class="btn-nav">Contattaci</a>
-    </nav>
-  </div>
+<header class="navbar">
+  <div class="logo">CRE<span>LORE</span></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contatti.html" class="btn-nav">Contattaci</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section class="services container">
-  <h1 class="section-title reveal">I Nostri <span>Servizi</span></h1>
+  <h1 class="section-title reveal">Soluzioni <span>Strategiche</span></h1>
 
   <div class="cards">
     <div class="card glass reveal">
@@ -34,7 +32,7 @@
         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7L2 14l10 5 10-5-10-5z"/></svg>
       </div>
       <h3>Web Experience</h3>
-      <p>Realizziamo siti web e web app performanti, scalabili e su misura.</p>
+      <p>Siti web, e-commerce e piattaforme scalabili con UX premium.</p>
     </div>
 
     <div class="card glass reveal delay-1">
@@ -42,7 +40,7 @@
         <svg viewBox="0 0 24 24"><path d="M3 3h18v4H3V3zm0 7h12v4H3v-4zm0 7h18v4H3v-4z"/></svg>
       </div>
       <h3>Social Catalyst</h3>
-      <p>Gestiamo strategie social, content creation e influencer marketing.</p>
+      <p>Strategie social data-driven per crescita reale.</p>
     </div>
 
     <div class="card glass reveal delay-2">
@@ -50,8 +48,44 @@
         <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8 2 2-10 10-4-4-4 4z"/></svg>
       </div>
       <h3>ROI Growth</h3>
-      <p>Ottimizziamo campagne Ads, SEO e conversioni per massimizzare il ritorno.</p>
+      <p>Performance marketing e ottimizzazione conversioni.</p>
     </div>
+  </div>
+</section>
+
+<!-- CONTATTI PREMIUM -->
+<section class="contact-section">
+  <div class="contact-container glass">
+
+    <div class="contact-info reveal">
+      <h2>Pronto a Scalare?</h2>
+      <p>Trasformiamo la tua visione in risultati concreti.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M2 6v12h20V6H2zm10 5l6-4v8l-6-4z"/></svg>
+          </div>
+          <span>hello@crelore.it</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-container reveal delay-1">
+      <form onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
+        <label>Nome Completo</label>
+        <input type="text" required>
+        <label>Email Business</label>
+        <input type="email" required>
+        <label>Servizio richiesto</label>
+        <select>
+          <option>Sito Web / App</option>
+          <option>Social Media</option>
+          <option>Performance Ads</option>
+        </select>
+        <button type="submit">Invia Richiesta</button>
+      </form>
+    </div>
+
   </div>
 </section>
 
@@ -61,19 +95,16 @@
 
 <script>
 const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add("active"); } });
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add("active"); }
+  });
 },{threshold:0.15});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-const navbar = document.querySelector(".navbar");
-const scrollBar = document.createElement("div");
-scrollBar.id = "scroll-bar";
-document.body.appendChild(scrollBar);
+const navbar = document.querySelector("header");
 window.addEventListener("scroll", ()=>{
-  const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  scrollBar.style.width = (scrollTop/docHeight*100)+"%";
-  if(scrollTop>20){ navbar.classList.add("scrolled"); } else { navbar.classList.remove("scrolled"); }
+  if(window.scrollY > 20){ navbar.classList.add("scrolled"); }
+  else{ navbar.classList.remove("scrolled"); }
 });
 </script>
 
