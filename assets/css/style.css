@@ -367,13 +367,13 @@ nav a:hover {
     }
 }
 
-/* ===== FOOTER PREMIUM ===== */
-
+/* ===== FOOTER PREMIUM STYLE ===== */
 .footer-premium {
-    padding: 60px 20px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 3rem 5%;
     backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.02);
+    background: rgba(15, 23, 42, 0.85);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
 }
 
 .footer-container {
@@ -383,42 +383,46 @@ nav a:hover {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 1.5rem;
 }
 
+/* Logo stile identico all’header */
 .logo-footer {
-    font-size: 22px;
+    font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: -1px;
-}
-
-.logo-footer span {
-    color: #3b82f6; /* stesso blu header */
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .social-icons {
     display: flex;
-    gap: 25px;
+    gap: 1.5rem;
 }
 
-.social-icons a {
-    font-size: 20px;
-    color: #888;
-    transition: 0.3s ease;
+/* Icone SVG con glow effetto neon */
+.social-icon svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #888;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.3));
 }
 
-.social-icons a:hover {
-    color: #3b82f6;
-    transform: translateY(-4px);
+.social-icon:hover svg {
+    fill: #fff;
+    filter: drop-shadow(0 0 8px var(--primary))
+            drop-shadow(0 0 12px var(--secondary));
 }
 
+/* Copyright */
 .footer-copy {
-    font-size: 14px;
-    color: #666;
+    font-size: 0.875rem;
+    color: #aaa;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media(max-width:768px) {
     .footer-container {
         flex-direction: column;
         text-align: center;
