@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crelore | Agenzia Digitale Innovativa</title>
+    <meta name="description" content="Trasformiamo le tue idee in esperienze digitali memorabili.">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<!-- Background Blobs -->
+<div class="blob blob-top"></div>
+<div class="blob blob-bottom"></div>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="container nav-content">
+        <div class="logo">
+            <div class="logo-icon">C</div>
+            CRE<span>LORE</span>
+        </div>
+        <div class="nav-links">
+            <a href="#servizi">Servizi</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contatti" class="btn-white">Contattaci</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="badge">L'agenzia del futuro, oggi.</div>
+    <h1>
+        Sviluppiamo il <br>
+        <span class="text-gradient">Domani Digitale</span>
+    </h1>
+    <p>
+        Crelore trasforma idee audaci in esperienze digitali memorabili.
+    </p>
+    <div class="hero-buttons">
+        <a href="#contatti" class="btn-primary">Inizia ora</a>
+        <a href="#portfolio" class="btn-glass">Guarda i progetti</a>
+    </div>
+</section>
+
+<!-- SERVIZI -->
+<section id="servizi" class="section">
+    <div class="container">
+        <h2>Soluzioni <span> Senza Limiti</span></h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Web Experience</h3>
+                <p>UI/UX, E-commerce, Web App.</p>
+            </div>
+            <div class="card">
+                <h3>Social Catalyst</h3>
+                <p>Content, Community, Influencer.</p>
+            </div>
+            <div class="card">
+                <h3>ROI Growth</h3>
+                <p>Ads, SEO, CRO.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Crelore. Innovazione Digitale.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.card').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
