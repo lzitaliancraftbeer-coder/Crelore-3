@@ -103,49 +103,53 @@
   </div>
 </section>
 
-   <!-- Contatti -->
-    <section id="contatti" class="py-32 px-6">
-        <div class="max-w-5xl mx-auto glass rounded-[3rem] overflow-hidden grid md:grid-cols-2">
-            <div class="p-12 md:p-20 bg-blue-600 flex flex-col justify-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">Il Tuo Futuro Inizia Qui.</h2>
-                <p class="text-blue-100 mb-12 text-lg">Prenota una consulenza gratuita. Analizziamo i tuoi obiettivi e definiamo la rotta.</p>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center"><i class="fas fa-envelope"></i></div>
-                        <span>hello@crelore.it</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center"><i class="fas fa-location-dot"></i></div>
-                        <span>Disponibili Worldwide</span>
-                    </div>
-                </div>
-            </div>
-            <div class="p-12 md:p-20">
-                <form class="space-y-6" onsubmit="event.preventDefault()">
-                    <div>
-                        <label class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-2 block">Nome Completo</label>
-                        <input type="text" class="w-full bg-white/5 border-b border-white/20 py-3 outline-none focus:border-blue-500 transition" placeholder="Mario Rossi">
-                    </div>
-                    <div>
-                        <label class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-2 block">Email Business</label>
-                        <input type="email" class="w-full bg-white/5 border-b border-white/20 py-3 outline-none focus:border-blue-500 transition" placeholder="mario@azienda.it">
-                    </div>
-                    <div>
-                        <label class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-2 block">Di cosa hai bisogno?</label>
-                        <select class="w-full bg-transparent border-b border-white/20 py-3 outline-none focus:border-blue-500 transition text-gray-400">
-                            <option class="bg-black">Sito Web / App</option>
-                            <option class="bg-black">Social Media Management</option>
-                            <option class="bg-black">Lead Generation / Ads</option>
-                            <option class="bg-black">Altro</option>
-                        </select>
-                    </div>
-                    <button class="w-full py-5 bg-white text-black font-extrabold rounded-2xl hover:bg-blue-500 hover:text-white transition-all transform active:scale-95 shadow-xl">
-                        Invia Richiesta <i class="fas fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
-            </div>
+<section id="contatti" class="contact-section">
+  <div class="contact-container glass">
+    
+    <!-- Info -->
+    <div class="contact-info">
+      <h2>Il Tuo Futuro Inizia Qui.</h2>
+      <p>Prenota una consulenza gratuita. Analizziamo i tuoi obiettivi e definiamo la rotta.</p>
+      
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M2 6v12h20V6H2zm10 5l6-4v8l-6-4z"/></svg>
+          </div>
+          <span>hello@crelore.it</span>
         </div>
-    </section>
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </div>
+          <span>Disponibili Worldwide</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Form -->
+    <div class="contact-form-container">
+      <form onsubmit="event.preventDefault()">
+        <label>Nome Completo</label>
+        <input type="text" placeholder="Mario Rossi" required>
+
+        <label>Email Business</label>
+        <input type="email" placeholder="mario@azienda.it" required>
+
+        <label>Di cosa hai bisogno?</label>
+        <select required>
+          <option>Sito Web / App</option>
+          <option>Social Media Management</option>
+          <option>Lead Generation / Ads</option>
+          <option>Altro</option>
+        </select>
+
+        <button type="submit">Invia Richiesta</button>
+      </form>
+    </div>
+
+  </div>
+</section>
 
 <footer class="footer">
   © 2026 Crelore — Innovazione Digitale
