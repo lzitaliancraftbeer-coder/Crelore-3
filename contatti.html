@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crelore | Contatti</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<header class="navbar glass">
+  <div class="container nav-inner">
+    <div class="logo">
+      <div class="logo-box">C</div>
+      CRE<span>LORE</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="portfolio.html">Portfolio</a>
+    </nav>
+  </div>
+</header>
+
+<section class="services container">
+  <h1 class="section-title reveal">Contattaci</h1>
+
+  <div class="cards">
+    <div class="card glass reveal">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
+        <label>Nome Completo</label>
+        <input type="text" placeholder="Mario Rossi" required>
+
+        <label>Email Business</label>
+        <input type="email" placeholder="mario@azienda.it" required>
+
+        <label>Servizio richiesto</label>
+        <select required>
+          <option>Sito Web / App</option>
+          <option>Social Media Management</option>
+          <option>Lead Generation / Ads</option>
+          <option>Altro</option>
+        </select>
+
+        <button type="submit" class="btn-primary">Invia Richiesta</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Crelore — Innovazione Digitale
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add("active"); } });
+},{threshold:0.15});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const navbar = document.querySelector(".navbar");
+const scrollBar = document.createElement("div");
+scrollBar.id = "scroll-bar";
+document.body.appendChild(scrollBar);
+window.addEventListener("scroll", ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  scrollBar.style.width = (scrollTop/docHeight*100)+"%";
+  if(scrollTop>20){ navbar.classList.add("scrolled"); } else { navbar.classList.remove("scrolled"); }
+});
+</script>
+
+</body>
+</html>
