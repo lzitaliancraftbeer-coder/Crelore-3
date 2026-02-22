@@ -367,8 +367,63 @@ nav a:hover {
     }
 }
 
-/* ===== FOOTER ===== */
-.footer { padding: 50px 20px; text-align: center; font-size: 14px; color: #888; border-top: 1px solid rgba(255,255,255,0.05); }
+/* ===== FOOTER PREMIUM ===== */
+
+.footer-premium {
+    padding: 60px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.02);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.logo-footer {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo-footer span {
+    color: #3b82f6; /* stesso blu header */
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icons a {
+    font-size: 20px;
+    color: #888;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3b82f6;
+    transform: translateY(-4px);
+}
+
+.footer-copy {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
 /* ===== REVEAL ANIMATION ===== */
 .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(.4,0,.2,1); }
