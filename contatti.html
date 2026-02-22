@@ -8,36 +8,57 @@
 </head>
 <body>
 
+<!-- BLOBS ANIMATI -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 
-<header class="navbar glass">
-  <div class="container nav-inner">
-    <div class="logo">
-      <div class="logo-box">C</div>
-      CRE<span>LORE</span>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="servizi.html">Servizi</a>
-      <a href="portfolio.html">Portfolio</a>
-    </nav>
-  </div>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">CRE<span>LORE</span></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contatti.html" class="btn-nav">Contattaci</a></li>
+    </ul>
+  </nav>
 </header>
 
-<section class="services container">
-  <h1 class="section-title reveal">Contattaci</h1>
+<!-- CONTATTI SECTION -->
+<section id="contatti" class="contact-section">
+  <div class="contact-container glass">
+    
+    <!-- INFO -->
+    <div class="contact-info reveal">
+      <h2>Il Tuo Futuro Inizia Qui.</h2>
+      <p>Prenota una consulenza gratuita. Analizziamo i tuoi obiettivi e definiamo la rotta.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M2 6v12h20V6H2zm10 5l6-4v8l-6-4z"/></svg>
+          </div>
+          <span>hello@crelore.it</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </div>
+          <span>Disponibili Worldwide</span>
+        </div>
+      </div>
+    </div>
 
-  <div class="cards">
-    <div class="card glass reveal">
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
+    <!-- FORM -->
+    <div class="contact-form-container reveal delay-1">
+      <form onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
         <label>Nome Completo</label>
         <input type="text" placeholder="Mario Rossi" required>
 
         <label>Email Business</label>
         <input type="email" placeholder="mario@azienda.it" required>
 
-        <label>Servizio richiesto</label>
+        <label>Di cosa hai bisogno?</label>
         <select required>
           <option>Sito Web / App</option>
           <option>Social Media Management</option>
@@ -45,31 +66,38 @@
           <option>Altro</option>
         </select>
 
-        <button type="submit" class="btn-primary">Invia Richiesta</button>
+        <button type="submit">Invia Richiesta</button>
       </form>
     </div>
+
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   © 2026 Crelore — Innovazione Digitale
 </footer>
 
+<!-- SCRIPT -->
 <script>
+/* Reveal animazioni */
 const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add("active"); } });
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+  });
 },{threshold:0.15});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-const navbar = document.querySelector(".navbar");
-const scrollBar = document.createElement("div");
-scrollBar.id = "scroll-bar";
-document.body.appendChild(scrollBar);
+/* Scroll navbar blur */
+const navbar = document.querySelector("header");
 window.addEventListener("scroll", ()=>{
-  const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  scrollBar.style.width = (scrollTop/docHeight*100)+"%";
-  if(scrollTop>20){ navbar.classList.add("scrolled"); } else { navbar.classList.remove("scrolled"); }
+  if(window.scrollY > 20){
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
 });
 </script>
 
