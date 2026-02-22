@@ -49,50 +49,48 @@ body {
   to   { transform: translate(20%,20%) rotate(360deg); }
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-  position: fixed;
-  width: 100%;
-  padding: 20px 0;
-  z-index: 1000;
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
-}
+        /* Navbar elegante */
+        header {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.nav-inner {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
 
-.navbar.scrolled {
-  backdrop-filter: blur(15px);
-  padding: 25px 20px;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-.nav-inner nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 25px;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  transition: color 0.3s;
-}
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.nav-inner nav a:hover { color: var(--blue); }
-.btn-nav {
-  background: #fff;
-  color: #000;
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.btn-nav:hover { background: var(--blue); color: #fff; }
+        nav a:hover {
+            color: var(--primary);
+        }
 
 /* ===== SCROLL PROGRESS BAR ===== */
 #scroll-bar {
