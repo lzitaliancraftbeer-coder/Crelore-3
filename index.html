@@ -193,5 +193,17 @@ const observer = new IntersectionObserver((entries)=>{
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 
+<script>
+const navbar = document.querySelector("header");
+
+window.addEventListener("scroll", ()=>{
+    if(window.scrollY > 20){
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>    
+
 </body>
 </html>
