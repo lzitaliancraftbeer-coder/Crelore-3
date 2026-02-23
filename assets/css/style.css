@@ -285,7 +285,7 @@ nav a:hover {
 .contact-items {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.8rem;
 }
 
 .contact-item {
@@ -294,20 +294,28 @@ nav a:hover {
     gap: 1rem;
 }
 
-.contact-item .icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    background: rgba(255,255,255,0.1);
+.contact-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 9999px;
+    flex-shrink: 0;
 }
 
-.contact-item svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    fill: #fff;
+.icon-svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    stroke-width: 1.8;
+    fill: none;
+}
+
+.contact-item span {
+    font-size: 16px;
+    color: white;
 }
 
 .contact-form-container {
