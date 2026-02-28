@@ -487,5 +487,38 @@ nav a:hover {
 @media(min-width:1024px) {
   .hero h1 { font-size: 5rem; }
 }
+/* Hamburger e menu mobile */
+.nav-mobile { 
+  display: none; 
+  position: absolute; 
+  top: 100%; 
+  right: 5%; 
+  background: rgba(15,23,42,0.95); 
+  border-radius: 1rem; 
+  padding: 1rem; 
+  text-align: right;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+}
+</style>
+
 
 /* ===== JS SCROLL FUNCTIONS ===== */
