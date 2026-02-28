@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crelore - Template</title>
+
+<style>
+
+/* RESET BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* LOGO */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #3b82f6;
+}
+
+/* MENU DESKTOP */
+.nav-desktop ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-desktop a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-desktop a:hover {
+  color: #3b82f6;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* MENU MOBILE */
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 80px;
+  right: 5%;
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+}
+
+.nav-mobile ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-mobile a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-mobile a:hover {
+  color: #3b82f6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CRE<span>LORE</span></div>
+
+  <!-- MENU DESKTOP -->
+  <nav class="nav-desktop">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Servizi</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- MENU MOBILE -->
+  <nav class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Servizi</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contatti</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMobile = document.getElementById("nav-mobile");
+
+hamburger.addEventListener("click", () => {
+  navMobile.style.display =
+    navMobile.style.display === "block" ? "none" : "block";
+});
+</script>
+
+</body>
+</html>
