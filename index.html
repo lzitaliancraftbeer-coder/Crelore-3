@@ -12,15 +12,33 @@
 <div class="blob blob-2"></div>
 
 <header class="navbar">
-    <div class="logo">CRE<span>LORE</span></div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="servizi.html">Servizi</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contatti.html" class="btn-nav">Contattaci</a></li>
-        </ul>
-    </nav>
+    <header class="header">
+  <div class="logo">CRE<span>LORE</span></div>
+
+  <!-- Menu desktop -->
+  <nav class="nav-desktop">
+    <ul>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hamburger mobile -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu mobile -->
+  <nav class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section class="hero container">
@@ -279,6 +297,15 @@ window.addEventListener("scroll", ()=>{
     } else {
         navbar.classList.remove("scrolled");
     }
+});
+</script>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+
+hamburger.addEventListener('click', () => {
+  navMobile.style.display = navMobile.style.display === 'block' ? 'none' : 'block';
 });
 </script>    
 
