@@ -230,84 +230,66 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
 
-// ================= COOKIE BANNER =================
-function acceptCookies() {
-    localStorage.setItem("cookieConsent", "accepted");
-    const banner = document.getElementById("cookie-banner");
-    if(banner) banner.style.display = "none";
-}
+  // ================= COOKIE BANNER =================
+  const cookieBanner = document.getElementById("cookie-banner");
+  if(localStorage.getItem("cookieConsent") && cookieBanner){
+      cookieBanner.style.display = "none";
+  }
 
-function rejectCookies() {
-    localStorage.setItem("cookieConsent", "rejected");
-    const banner = document.getElementById("cookie-banner");
-    if(banner) banner.style.display = "none";
-}
+  window.acceptCookies = function() {
+      localStorage.setItem("cookieConsent", "accepted");
+      if(cookieBanner) cookieBanner.style.display = "none";
+  }
 
-window.addEventListener("load", function() {
-    const banner = document.getElementById("cookie-banner");
-    if(localStorage.getItem("cookieConsent") && banner){
-        banner.style.display = "none";
-    }
-});
+  window.rejectCookies = function() {
+      localStorage.setItem("cookieConsent", "rejected");
+      if(cookieBanner) cookieBanner.style.display = "none";
+  }
 
-// ================= REVEAL ANIMATIONS =================
-document.addEventListener("DOMContentLoaded", function(){
+  // ================= INTERSECTION OBSERVER =================
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if(entry.isIntersecting){
+              entry.target.classList.add("active");
+          }
+      });
+  }, {threshold: 0.15});
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add("active");
-            }
-        });
-    }, {threshold: 0.15});
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+  // ================= NAVBAR SCROLL =================
+  const navbar = document.querySelector(".navbar");
+  window.addEventListener("scroll", () => {
+      if(navbar){
+          if(window.scrollY > 20){
+              navbar.classList.add("scrolled");
+          } else {
+              navbar.classList.remove("scrolled");
+          }
+      }
+  });
 
-    // ================= NAVBAR SCROLL =================
-    const navbar = document.querySelector(".navbar");
-    const scrollBar = document.createElement("div");
-    scrollBar.id = "scroll-bar";
-    document.body.appendChild(scrollBar);
+  // ================= HAMBURGER MOBILE MENU =================
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-    window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const widthPercent = (scrollTop / docHeight) * 100;
-        scrollBar.style.width = widthPercent + "%";
+  if(hamburger && mobileMenu){
+      hamburger.addEventListener("click", function(){
+          mobileMenu.classList.toggle("active");
+          hamburger.classList.toggle("open");
+      });
 
-        if(navbar){
-            if(scrollTop > 20){
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-        }
-    });
+      // Chiude il menu cliccando su un link
+      mobileMenu.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => {
+              mobileMenu.classList.remove("active");
+              hamburger.classList.remove("open");
+          });
+      });
+  }
 
-    // ================= MOBILE MENU =================
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if(hamburger && mobileMenu){
-        // Assicuriamoci che hamburger sia cliccabile sopra tutto
-        hamburger.style.zIndex = "3000";
-        hamburger.style.pointerEvents = "auto";
-
-        hamburger.addEventListener("click", () => {
-            mobileMenu.classList.toggle("active");
-            hamburger.classList.toggle("open");
-        });
-
-        // Chiude il menu quando clicchi un link
-        mobileMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.remove("active");
-                hamburger.classList.remove("open");
-            });
-        });
-    }
 });
 </script>
 
