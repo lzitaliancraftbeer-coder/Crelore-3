@@ -230,62 +230,73 @@
 </div>
 
 <script>
-// ================= COOKIE BANNER =================
-function acceptCookies() {
-  localStorage.setItem("cookieConsent", "accepted");
-  document.getElementById("cookie-banner").style.display = "none";
-}
-
-function rejectCookies() {
-  localStorage.setItem("cookieConsent", "rejected");
-  document.getElementById("cookie-banner").style.display = "none";
-}
-
-window.addEventListener("load", function() {
-  if (localStorage.getItem("cookieConsent")) {
-    const banner = document.getElementById("cookie-banner");
-    if(banner) banner.style.display = "none";
-  }
-});
-
-// ================= SCROLL EFFECT + REVEAL =================
 document.addEventListener("DOMContentLoaded", function(){
 
+  // ================= COOKIE BANNER =================
+  const cookieBanner = document.getElementById("cookie-banner");
+  function acceptCookies(){
+    localStorage.setItem("cookieConsent","accepted");
+    cookieBanner.style.display = "none";
+  }
+  function rejectCookies(){
+    localStorage.setItem("cookieConsent","rejected");
+    cookieBanner.style.display = "none";
+  }
+  if(localStorage.getItem("cookieConsent")){
+    cookieBanner.style.display = "none";
+  }
+  // Aggancio bottoni
+  const buttons = cookieBanner.querySelectorAll("button");
+  buttons[0]?.addEventListener("click", acceptCookies);
+  buttons[1]?.addEventListener("click", rejectCookies);
+
+  // ================= REVEAL ELEMENTS =================
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         entry.target.classList.add("active");
       }
     });
-  },{threshold:0.15});
+  }, {threshold:0.15});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-  document.querySelectorAll(".reveal").forEach(el=>{
-    observer.observe(el);
-  });
-
+  // ================= SCROLL EFFECT =================
   const navbar = document.querySelector(".navbar");
+  const scrollBar = document.createElement("div");
+  scrollBar.id = "scroll-bar";
+  document.body.appendChild(scrollBar);
 
   window.addEventListener("scroll", ()=>{
-    if(navbar){
-      if(window.scrollY > 20){
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    scrollBar.style.width = (scrollTop / docHeight * 100) + "%";
+
+    if(scrollTop > 20){
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
     }
   });
 
-  // ================= MENU MOBILE =================
-document.addEventListener("DOMContentLoaded", function(){
+  // ================= MOBILE MENU =================
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobile-menu");
 
-  if(!hamburger || !mobileMenu) return;
+  if(hamburger && mobileMenu){
+    hamburger.addEventListener("click", ()=>{
+      mobileMenu.classList.toggle("active");
+      hamburger.classList.toggle("open"); // qui CSS trasforma in X
+    });
 
-  hamburger.addEventListener("click", function(){
-    mobileMenu.classList.toggle("active");
-    hamburger.classList.toggle("open");
-  });
+    // chiude il menu quando clicchi un link
+    mobileMenu.querySelectorAll("a").forEach(link=>{
+      link.addEventListener("click", ()=>{
+        mobileMenu.classList.remove("active");
+        hamburger.classList.remove("open");
+      });
+    });
+  }
+
 });
 </script>
 
