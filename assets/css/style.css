@@ -13,11 +13,15 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: #050505;
   color: #ffffff;
-  overflow-x: hidden;
   line-height: 1.6;
 }
 
@@ -40,9 +44,14 @@ body {
   z-index: -1;
   opacity: .25;
   animation: float 20s infinite alternate ease-in-out;
+  pointer-events: none;
 }
 .blob-1 { top: -10%; left: -10%; }
 .blob-2 { bottom: -10%; right: -10%; animation-delay: -5s; }
+
+body {
+  position: relative;
+}
 
 @keyframes float {
   from { transform: translate(-10%,-10%) rotate(0deg); }
@@ -498,8 +507,8 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(5,5,5,0.98);
-    backdrop-filter: blur(15px);
+    background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(30,41,59,0.98));
+    backdrop-filter: blur(20px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -547,6 +556,22 @@ nav a:hover {
     height: 3px;
     background: white;
     border-radius: 2px;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+}
+
+.hamburger span {
+    transition: all 0.3s ease;
 }
 
 /* RESPONSIVE */
