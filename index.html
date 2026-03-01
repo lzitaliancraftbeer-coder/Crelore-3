@@ -303,13 +303,22 @@ window.addEventListener("scroll", ()=>{
 
     <!-- JS MENU MOBILE -->
     <script>
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobile-menu");
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
 
-    hamburger.addEventListener("click", () => {
-        mobileMenu.classList.toggle("active");
+hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+    hamburger.classList.toggle("open");
+});
+
+// chiude il menu quando clicchi un link
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        hamburger.classList.remove("open");
     });
-    </script>
+});
+</script>
 
 </body>
 </html>
