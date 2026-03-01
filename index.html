@@ -232,71 +232,83 @@
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-  // ================= COOKIE BANNER =================
-  const cookieBanner = document.getElementById("cookie-banner");
-  function acceptCookies(){
-    localStorage.setItem("cookieConsent","accepted");
-    cookieBanner.style.display = "none";
-  }
-  function rejectCookies(){
-    localStorage.setItem("cookieConsent","rejected");
-    cookieBanner.style.display = "none";
-  }
-  if(localStorage.getItem("cookieConsent")){
-    cookieBanner.style.display = "none";
-  }
-  // Aggancio bottoni
-  const buttons = cookieBanner.querySelectorAll("button");
-  buttons[0]?.addEventListener("click", acceptCookies);
-  buttons[1]?.addEventListener("click", rejectCookies);
+<script>
+// ================= COOKIE BANNER =================
+function acceptCookies() {
+    localStorage.setItem("cookieConsent", "accepted");
+    const banner = document.getElementById("cookie-banner");
+    if(banner) banner.style.display = "none";
+}
 
-  // ================= REVEAL ELEMENTS =================
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add("active");
-      }
-    });
-  }, {threshold:0.15});
-  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+function rejectCookies() {
+    localStorage.setItem("cookieConsent", "rejected");
+    const banner = document.getElementById("cookie-banner");
+    if(banner) banner.style.display = "none";
+}
 
-  // ================= SCROLL EFFECT =================
-  const navbar = document.querySelector(".navbar");
-  const scrollBar = document.createElement("div");
-  scrollBar.id = "scroll-bar";
-  document.body.appendChild(scrollBar);
-
-  window.addEventListener("scroll", ()=>{
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    scrollBar.style.width = (scrollTop / docHeight * 100) + "%";
-
-    if(scrollTop > 20){
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
+window.addEventListener("load", function() {
+    const banner = document.getElementById("cookie-banner");
+    if(localStorage.getItem("cookieConsent") && banner){
+        banner.style.display = "none";
     }
-  });
+});
 
-  // ================= MOBILE MENU =================
-  const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.getElementById("mobile-menu");
+// ================= REVEAL ANIMATIONS =================
+document.addEventListener("DOMContentLoaded", function(){
 
-  if(hamburger && mobileMenu){
-    hamburger.addEventListener("click", ()=>{
-      mobileMenu.classList.toggle("active");
-      hamburger.classList.toggle("open"); // qui CSS trasforma in X
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("active");
+            }
+        });
+    }, {threshold: 0.15});
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    // ================= NAVBAR SCROLL =================
+    const navbar = document.querySelector(".navbar");
+    const scrollBar = document.createElement("div");
+    scrollBar.id = "scroll-bar";
+    document.body.appendChild(scrollBar);
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const widthPercent = (scrollTop / docHeight) * 100;
+        scrollBar.style.width = widthPercent + "%";
+
+        if(navbar){
+            if(scrollTop > 20){
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        }
     });
 
-    // chiude il menu quando clicchi un link
-    mobileMenu.querySelectorAll("a").forEach(link=>{
-      link.addEventListener("click", ()=>{
-        mobileMenu.classList.remove("active");
-        hamburger.classList.remove("open");
-      });
-    });
-  }
+    // ================= MOBILE MENU =================
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
 
+    if(hamburger && mobileMenu){
+        // Assicuriamoci che hamburger sia cliccabile sopra tutto
+        hamburger.style.zIndex = "3000";
+        hamburger.style.pointerEvents = "auto";
+
+        hamburger.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+            hamburger.classList.toggle("open");
+        });
+
+        // Chiude il menu quando clicchi un link
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("active");
+                hamburger.classList.remove("open");
+            });
+        });
+    }
 });
 </script>
 
