@@ -230,6 +230,7 @@
 </div>
 
 <script>
+// ================= COOKIE BANNER =================
 function acceptCookies() {
   localStorage.setItem("cookieConsent", "accepted");
   document.getElementById("cookie-banner").style.display = "none";
@@ -240,83 +241,60 @@ function rejectCookies() {
   document.getElementById("cookie-banner").style.display = "none";
 }
 
-window.onload = function() {
+window.addEventListener("load", function() {
   if (localStorage.getItem("cookieConsent")) {
-    document.getElementById("cookie-banner").style.display = "none";
-  }
-};
-</script>
-
-<script>
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-  });
-},{threshold:0.15});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-
-// Navbar blur on scroll
-const navbar = document.querySelector(".navbar");
-const scrollBar = document.createElement("div");
-scrollBar.id = "scroll-bar";
-document.body.appendChild(scrollBar);
-
-window.addEventListener("scroll", ()=>{
-  const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  const widthPercent = (scrollTop / docHeight) * 100;
-  scrollBar.style.width = widthPercent + "%";
-
-  if(scrollTop > 20){
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
+    const banner = document.getElementById("cookie-banner");
+    if(banner) banner.style.display = "none";
   }
 });
-</script>
 
-<script>
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
+// ================= SCROLL EFFECT + REVEAL =================
+document.addEventListener("DOMContentLoaded", function(){
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+      }
+    });
+  },{threshold:0.15});
+
+  document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
   });
-},{threshold:0.15});
 
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-</script>
+  const navbar = document.querySelector(".navbar");
 
-<script>
-const navbar = document.querySelector("header");
-
-window.addEventListener("scroll", ()=>{
-    if(window.scrollY > 20){
+  window.addEventListener("scroll", ()=>{
+    if(navbar){
+      if(window.scrollY > 20){
         navbar.classList.add("scrolled");
-    } else {
+      } else {
         navbar.classList.remove("scrolled");
+      }
     }
-});
-</script>    
+  });
 
-    <!-- JS MENU MOBILE -->
-    <script>
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobile-menu");
+  // ================= MENU MOBILE =================
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-hamburger.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-    hamburger.classList.toggle("open");
-});
+  if(hamburger && mobileMenu){
 
-// chiude il menu quando clicchi un link
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
+    hamburger.addEventListener("click", ()=>{
+      mobileMenu.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach(link=>{
+      link.addEventListener("click", ()=>{
         mobileMenu.classList.remove("active");
         hamburger.classList.remove("open");
+      });
     });
+
+  }
+
 });
 </script>
 
