@@ -33,21 +33,20 @@ body {
   --gradient: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
 }
 
-/* ===== BLOBS ===== */
+/* ===== BLOBS LEGGERI ===== */
 .blob {
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(135deg,#1e40af,#7e22ce);
-  filter: blur(90px);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, #1e40af, #7e22ce);
   border-radius: 50%;
   z-index: -1;
-  opacity: .25;
-  animation: float 20s infinite alternate ease-in-out;
+  opacity: 0.15;
   pointer-events: none;
 }
+
 .blob-1 { top: -10%; left: -10%; }
-.blob-2 { bottom: -10%; right: -10%; animation-delay: -5s; }
+.blob-2 { bottom: -10%; right: -10%; }
 
 body {
   position: relative;
@@ -566,6 +565,7 @@ nav a:hover {
   margin-bottom: 0;
 }
 
+/* ===== HAMBURGER X ===== */
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -576,6 +576,10 @@ nav a:hover {
 
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.hamburger span {
+  transition: all 0.3s ease;
 }
 
 /* RESPONSIVE */
