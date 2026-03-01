@@ -535,11 +535,15 @@ nav a:hover {
 
 /* HAMBURGER */
 .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 2100;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 2100;
+  pointer-events: auto;
 }
 
 .hamburger span {
