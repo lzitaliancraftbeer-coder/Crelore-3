@@ -521,12 +521,57 @@ nav a:hover {
 }
 
 /* Hamburger icon */
+/* Navbar base */
+.custom-navbar {
+  background-color: #222; /* sfondo scuro della vecchia navbar */
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2100; /* sopra tutto il resto */
+  transition: background 0.3s;
+}
+
+/* Logo */
+.custom-navbar .navbar-brand {
+  color: #f5f5f5;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Link menu */
+.custom-navbar .nav-link {
+  color: #f5f5f5;
+  margin-left: 1.2rem;
+  font-weight: 500;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ff9900; /* colore hover della vecchia nav */
+}
+
+/* Hamburger icon */
 .navbar-toggler {
   border: none;
 }
 
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Menu mobile */
+@media (max-width: 991px) {
+  .custom-navbar {
+    padding: 0.8rem 0;
+  }
+
+  .custom-navbar .nav-link {
+    margin: 0.5rem 0;
+  }
 }
 
 /* Menu mobile */
@@ -543,5 +588,34 @@ nav a:hover {
     .hamburger {
         display: flex;
     }
+}
+
+/* ===== OVERRIDE BOOTSTRAP ===== */
+
+.custom-navbar {
+  background: linear-gradient(to right, #0f172a, #111827);
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #60a5fa !important; /* il tuo blu accent */
+}
+
+.custom-navbar .nav-link:focus,
+.custom-navbar .nav-link:active {
+  color: #60a5fa !important;
+  background: transparent !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
 }
 </style>
