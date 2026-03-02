@@ -21,6 +21,10 @@ body {
   line-height: 1.6;
 }
 
+body {
+  padding-top: 80px;
+}
+
 /* ===== VARIABLES ===== */
 :root {
   --blue: #2563eb;
