@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crelore | Agenzia Digitale Innovativa</title>
@@ -15,21 +16,39 @@
     <div class="logo">CRE<span>LORE</span></div>
 
     <!-- MENU DESKTOP -->
-    <nav class="nav-desktop">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="servizi.html">Servizi</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contatti.html" class="btn-nav">Contattaci</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+  <div class="container">
 
-    <!-- HAMBURGER -->
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <a class="navbar-brand text-white fw-bold" href="#">CRELORE</a>
+
+    <button class="navbar-toggler bg-light" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#services">Servizi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#contact">Contatti</a>
+        </li>
+      </ul>
     </div>
+
+  </div>
+</nav>
 </header>
 
 <!-- MOBILE OVERLAY MENU -->
@@ -310,6 +329,6 @@ window.addEventListener("scroll", ()=>{
         mobileMenu.classList.toggle("active");
     });
     </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
