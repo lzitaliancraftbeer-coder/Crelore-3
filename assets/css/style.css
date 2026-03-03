@@ -257,7 +257,13 @@ html, body {
   margin-bottom: 50px;
 }
 
-.hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+.hero-buttons {
+  display: flex;
+  justify-content: center;   /* centra orizzontalmente */
+  align-items: center;       /* allineamento verticale pulito */
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
 .btn-primary {
   background: var(--blue);
