@@ -3,133 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Vuota</title>
-    
+    <title>Template | CreLore</title>
     <!-- FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <!-- BOOTSTRAP 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FONTAWESOME -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- CSS PERSONALIZZATO -->
     <link rel="stylesheet" href="style.css">
-
-    <style>
-    /* ===== MENU MOBILE GLASSMORPHISM ===== */
-    .navbar-collapse {
-        backdrop-filter: blur(15px);
-        background: rgba(15,23,42,0.85);
-        border-radius: 1.5rem;
-        margin-top: 0.5rem;
-        transition: transform 0.5s ease, opacity 0.5s ease;
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    .navbar-collapse.show {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    /* ===== UNDERLINE ANIMATO ===== */
-    .nav-link {
-        position: relative;
-        overflow: hidden;
-    }
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0%;
-        height: 2px;
-        background: var(--primary);
-        transition: width 0.3s ease;
-    }
-    .nav-link:hover::after,
-    .nav-link.active::after {
-        width: 100%;
-    }
-
-    /* ===== INDICATORE SEZIONE ATTIVA ===== */
-    .nav-link.active {
-        font-weight: 700;
-        color: var(--primary) !important;
-    }
-    </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg custom-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">CRELORE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contatti</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">CreLore</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="template.html">Template</a></li>
+        <!-- aggiungi qui altri link -->
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <!-- CONTENUTO PRINCIPALE -->
-    <main class="template-page" style="padding-top:120px;">
-        <section id="hero" class="hero">
-            <div class="container text-center">
-                <h1 class="reveal">Nuova Pagina Vuota</h1>
-                <p class="reveal delay-1">Qui puoi aggiungere tutto il contenuto della pagina.</p>
-            </div>
-        </section>
-    </main>
+<!-- HERO -->
+<section class="hero">
+    <h1 class="gradient-text">Pagina Template</h1>
+    <p class="hero-text">Questa è una pagina vuota pronta per essere personalizzata.</p>
+    <div class="hero-buttons">
+        <a href="#" class="btn-primary">Azione 1</a>
+        <a href="#" class="btn-glass">Azione 2</a>
+    </div>
+</section>
 
-    <!-- COOKIE BANNER -->
-    <div id="cookie-banner" class="cookie-banner">
-        <p>Questo sito utilizza cookie per migliorare l’esperienza. <a href="#">Privacy Policy</a></p>
-        <div class="cookie-buttons">
-            <button onclick="acceptCookies()">Accetta</button>
-            <button onclick="rejectCookies()">Rifiuta</button>
+<!-- SEZIONE DI ESEMPIO -->
+<section class="services reveal">
+    <div class="container">
+        <h2 class="section-title">Sezione di esempio</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>Testo dimostrativo.</p>
+            </div>
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>Testo dimostrativo.</p>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer-premium">
-        <div class="footer-container">
-            <div class="logo-footer">CRELORE</div>
-            <div class="footer-copy">&copy; 2026 CRELORE. Tutti i diritti riservati.</div>
+<!-- FOOTER -->
+<footer class="footer-premium">
+    <div class="footer-container">
+        <div class="logo-footer">CreLore</div>
+        <div class="social-icons">
+            <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="social-icon" href="#"><i class="fab fa-instagram"></i></a>
         </div>
-    </footer>
+    </div>
+    <div class="footer-copy">© 2026 CreLore. Tutti i diritti riservati.</div>
+</footer>
 
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+<!-- JS BOOTSTRAP -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JS PERSONALIZZATO -->
+<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
 
-    <script>
-    // ===== INDICATORE SEZIONE ATTIVA =====
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll(".nav-link");
+    /* =========================
+       NAVBAR SCROLL EFFECT
+    ========================== */
+    const navbar = document.querySelector(".custom-navbar");
 
-    function setActiveLink() {
-        let scrollPos = window.scrollY + 150;
-        sections.forEach(section => {
-            if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight){
-                navLinks.forEach(link => link.classList.remove("active"));
-                const activeLink = document.querySelector(`.nav-link[href="#${section.id}"]`);
-                if(activeLink) activeLink.classList.add("active");
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+
+    /* =========================
+       AUTO CLOSE MOBILE MENU
+    ========================== */
+    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (navbarCollapse.classList.contains("show")) {
+                new bootstrap.Collapse(navbarCollapse).hide();
+            }
+        });
+    });
+
+    /* =========================
+       ACTIVE LINK BY PAGE
+    ========================== */
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-link").forEach(link => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+        }
+    });
+
+    /* =========================
+       REVEAL ON SCROLL
+    ========================== */
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+        reveals.forEach(element => {
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const revealPoint = 100;
+
+            if (elementTop < windowHeight - revealPoint) {
+                element.classList.add("active");
             }
         });
     }
 
-    window.addEventListener("scroll", setActiveLink);
-    window.addEventListener("load", setActiveLink);
-    </script>
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
 
+});
+</script>
 </body>
 </html>
