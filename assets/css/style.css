@@ -525,8 +525,12 @@ html, body {
 /* ===== COOKIE BANNER PREMIUM ===== */
 
 #cookie-banner {
+  top: calc(70px + 20px); /* 70px navbar + 20px margine */
+}
+
+#cookie-banner {
   position: fixed;
-  top: 20px; /* non più bottom */
+  top: calc(70px + 20px);
   left: 50%;
   transform: translateX(-50%);
   background: rgba(15,23,42,0.95);
