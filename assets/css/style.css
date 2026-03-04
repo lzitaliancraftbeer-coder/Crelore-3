@@ -515,6 +515,13 @@ html, body {
     }
 }
 
+    .cookie-banner {
+        width: 95%;
+        padding: 20px;
+        bottom: 15px;
+    }
+}
+
 /* ===== COOKIE BANNER PREMIUM ===== */
 
 .cookie-banner {
