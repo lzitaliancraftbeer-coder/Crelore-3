@@ -1,24 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* ============================= */
-  /* COOKIE BANNER */
-  /* ============================= */
+/* COOKIE BANNER PREMIUM */
+/* ============================= */
 
-  const cookieBanner = document.getElementById("cookie-banner");
+const cookieBanner = document.getElementById("cookie-banner");
 
-  if (cookieBanner && localStorage.getItem("cookieConsent")) {
-    cookieBanner.style.display = "none";
+if (cookieBanner) {
+
+  // Se non ha ancora scelto → mostra con animazione
+  if (!localStorage.getItem("cookieConsent")) {
+    setTimeout(() => {
+      cookieBanner.classList.add("show");
+    }, 500);
+  } else {
+    // Se ha già scelto → non mostrarlo
+    cookieBanner.classList.remove("show");
   }
 
   window.acceptCookies = function () {
     localStorage.setItem("cookieConsent", "accepted");
-    if (cookieBanner) cookieBanner.style.display = "none";
+    cookieBanner.classList.remove("show");
   };
 
   window.rejectCookies = function () {
     localStorage.setItem("cookieConsent", "rejected");
-    if (cookieBanner) cookieBanner.style.display = "none";
+    cookieBanner.classList.remove("show");
   };
+}
 
 
   /* ============================= */
