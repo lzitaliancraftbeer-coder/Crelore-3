@@ -211,13 +211,13 @@ html, body {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 100vh;
+  min-height: 100dvh; /* occupa sempre l'altezza reale della finestra */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 120px;
+  padding-top: 120px; /* puoi regolare se serve */
 }
 
 .badge {
