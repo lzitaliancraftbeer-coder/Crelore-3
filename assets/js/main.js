@@ -9,24 +9,23 @@ const cookieBanner = document.getElementById("cookie-banner");
 if (cookieBanner) {
 
   // Se non ha ancora scelto → mostra con animazione
-  if (!localStorage.getItem("cookieConsent")) {
-    setTimeout(() => {
-      cookieBanner.classList.add("show");
-    }, 500);
+if (!localStorage.getItem("cookieConsent")) {
+  document.body.style.overflow = "hidden"; // blocca scroll
+}, 500);
   } else {
     // Se ha già scelto → non mostrarlo
     cookieBanner.classList.remove("show");
   }
 
-  window.acceptCookies = function () {
-    localStorage.setItem("cookieConsent", "accepted");
-    cookieBanner.classList.remove("show");
-  };
-
-  window.rejectCookies = function () {
-    localStorage.setItem("cookieConsent", "rejected");
-    cookieBanner.classList.remove("show");
-  };
+function acceptCookies() {
+  localStorage.setItem("cookieConsent", "accepted");
+  document.getElementById("cookie-banner").style.display = "none";
+  document.body.style.overflow = "auto"; // sblocca scroll
+}
+function rejectCookies() {
+  localStorage.setItem("cookieConsent", "rejected");
+  document.getElementById("cookie-banner").style.display = "none";
+  document.body.style.overflow = "auto";
 }
 
 
