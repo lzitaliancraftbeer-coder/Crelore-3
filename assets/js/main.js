@@ -1,29 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* ============================= */
+  /* COOKIE BANNER */
+  /* ============================= */
+
   const cookieBanner = document.getElementById("cookie-banner");
 
-  if (!cookieBanner) return;
+  if (cookieBanner) {
 
-  if (localStorage.getItem("cookieConsent")) {
-    cookieBanner.style.display = "none";
-  } else {
-    document.body.style.overflow = "hidden";
+    if (localStorage.getItem("cookieConsent")) {
+      cookieBanner.style.display = "none";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+
+    window.acceptCookies = function () {
+      localStorage.setItem("cookieConsent", "accepted");
+      cookieBanner.style.display = "none";
+      document.body.style.overflow = "auto";
+    };
+
+    window.rejectCookies = function () {
+      localStorage.setItem("cookieConsent", "rejected");
+      cookieBanner.style.display = "none";
+      document.body.style.overflow = "auto";
+    };
+
   }
-
-  window.acceptCookies = function () {
-    localStorage.setItem("cookieConsent", "accepted");
-    cookieBanner.style.display = "none";
-    document.body.style.overflow = "auto";
-  };
-
-  window.rejectCookies = function () {
-    localStorage.setItem("cookieConsent", "rejected");
-    cookieBanner.style.display = "none";
-    document.body.style.overflow = "auto";
-  };
-
-});
-
 
   /* ============================= */
   /* REVEAL ON SCROLL */
@@ -32,18 +35,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const revealElements = document.querySelectorAll(".reveal");
 
   if (revealElements.length > 0) {
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
-          observer.unobserve(entry.target); // anima solo una volta
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
 
     revealElements.forEach(el => observer.observe(el));
-  }
 
+  }
 
   /* ============================= */
   /* NAVBAR SCROLL EFFECT */
@@ -60,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
 
   /* ============================= */
   /* BOOTSTRAP MOBILE AUTO-CLOSE */
@@ -82,28 +85,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-document.addEventListener("DOMContentLoaded", function() {
+  /* ============================= */
+  /* ACTIVE LINK BY SECTION */
+  /* ============================= */
 
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".custom-navbar .nav-link");
+  const sections = document.querySelectorAll("section[id]");
+  const menuLinks = document.querySelectorAll(".custom-navbar .nav-link");
+
+  if (sections.length > 0) {
 
     window.addEventListener("scroll", () => {
-        let scrollY = window.pageYOffset;
 
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 80; // compenso navbar
-            const sectionId = section.getAttribute("id");
+      let scrollY = window.pageYOffset;
 
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href") === "#" + sectionId) {
-                        link.classList.add("active");
-                    }
-                });
+      sections.forEach(section => {
+
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 80;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+
+          menuLinks.forEach(link => {
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === "#" + sectionId) {
+              link.classList.add("active");
             }
-        });
+
+          });
+
+        }
+
+      });
+
     });
+
+  }
 
 });
