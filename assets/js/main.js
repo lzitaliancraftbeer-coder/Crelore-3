@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const cookieBanner = document.getElementById("cookie-banner");
 
-if (cookieBanner) {
+  if (!cookieBanner) return;
 
   if (localStorage.getItem("cookieConsent")) {
     cookieBanner.style.display = "none";
@@ -10,19 +10,19 @@ if (cookieBanner) {
     document.body.style.overflow = "hidden";
   }
 
-}
+  window.acceptCookies = function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    cookieBanner.style.display = "none";
+    document.body.style.overflow = "auto";
+  };
 
-function acceptCookies() {
-  localStorage.setItem("cookieConsent", "accepted");
-  document.getElementById("cookie-banner").style.display = "none";
-  document.body.style.overflow = "auto";
-}
+  window.rejectCookies = function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    cookieBanner.style.display = "none";
+    document.body.style.overflow = "auto";
+  };
 
-function rejectCookies() {
-  localStorage.setItem("cookieConsent", "rejected");
-  document.getElementById("cookie-banner").style.display = "none";
-  document.body.style.overflow = "auto";
-}
+});
 
 
   /* ============================= */
