@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-});
-
 document.addEventListener("DOMContentLoaded", function() {
 
     const sections = document.querySelectorAll("section[id]");
