@@ -831,12 +831,3 @@ font-size:16px;
 
 }
 
-/* ===== FIX HERO SERVICES DESKTOP ===== */
-
-@media (min-width: 992px) {
-
-.hero-services{
-  padding-top: 140px;
-}
-
-}
