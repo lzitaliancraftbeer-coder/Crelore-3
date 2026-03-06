@@ -1,296 +1,195 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servizi | CreLore</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FONTAWESOME -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- CSS PERSONALIZZATO -->
+  <link rel="stylesheet" href="assets/css/style.css">
   
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9WENQB95E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-E9WENQB95E');
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template | CreLore</title>
-    <!-- FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FONTAWESOME -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- CSS PERSONALIZZATO -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* STILE SPECIFICO PER SERVIZI */
+    .services-page { padding: 4rem 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .services-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .service-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 1rem; padding: 2rem; transition: transform 0.4s; }
+    .service-card:hover { transform: translateY(-10px); }
+    .service-card .icon { width: 60px; height: 60px; margin-bottom: 1rem; }
+    .service-card .icon svg { width: 100%; height: 100%; fill: currentColor; }
+    .icon.blue { color: #1E90FF; }
+    .icon.purple { color: #8A2BE2; }
+    .icon.green { color: #28a745; }
+    .icon.orange { color: #fd7e14; }
+    .icon.red { color: #dc3545; }
+    .icon.teal { color: #20c997; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .cta-final { text-align: center; margin-top: 4rem; }
+  </style>
 </head>
 <body>
-    
-      <!-- COOKIE BANNER -->
-<div id="cookie-banner" class="cookie-banner">
-  <div class="cookie-content">
-    <p>
-      Utilizziamo cookie tecnici e, previo consenso, cookie di analisi per migliorare l’esperienza.
-      Leggi la nostra 
-      <a href="privacy-policy.html">Privacy Policy</a> e 
-      <a href="cookie-policy.html">Cookie Policy</a>.
-    </p>
-    <div class="cookie-buttons">
-      <button class="btn-accept" onclick="acceptCookies()">Accetta</button>
-      <button class="btn-reject" onclick="rejectCookies()">Rifiuta</button>
-    </div>
-  </div>
-</div>
 
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-
-    <!-- NAVBAR COMPLETA -->
-<nav class="navbar navbar-expand-lg custom-navbar">
-  <div class="container">
-    <!-- LOGO -->
-    <a class="navbar-brand" href="index.html">CRELORE</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="template.html">Template</a></li>
-        <!-- aggiungi qui altri link -->
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<header class="page-header reveal">
-  <h1>I <span>Servizi</span> che offriamo</h1>
-  <p>Soluzioni digitali complete per far crescere il tuo business, ottimizzare processi e aumentare visibilità.</p>
-</header>
-
-<main class="services-page container">
-
-  <section class="services-grid">
-
-    <div class="service-card glass reveal delay-1">
-      <div class="icon blue">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/>
-        </svg>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">CRELORE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Servizi</a></li>
+        </ul>
       </div>
-      <h3>Siti Web & E-commerce</h3>
-      <p>Realizziamo siti performanti, ottimizzati SEO, e-commerce scalabili con sistemi di pagamento moderni e gestione facile dei prodotti.</p>
-      <ul>
-        <li>Design responsive e moderno</li>
-        <li>SEO e performance ottimizzate</li>
-        <li>Integrazione con sistemi di pagamento</li>
-      </ul>
-      <a href="#contatti" class="btn-secondary">Richiedi un preventivo</a>
     </div>
+  </nav>
 
-    <div class="service-card glass reveal delay-2">
-      <div class="icon purple">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2l8 4v6c0 5-3.4 9.7-8 11-4.6-1.3-8-6-8-11V6l8-4z"/>
-        </svg>
+  <header class="page-header text-center reveal">
+    <h1>I <span>Servizi</span> che offriamo</h1>
+    <p>Soluzioni digitali complete per far crescere il tuo business, ottimizzare processi e aumentare visibilità.</p>
+  </header>
+
+  <main class="services-page container">
+
+    <section class="services-grid">
+
+      <div class="service-card glass reveal">
+        <div class="icon blue">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <h3>Siti Web & E-commerce</h3>
+        <p>Siti performanti, ottimizzati SEO, e-commerce scalabili con gestione facile dei prodotti.</p>
+        <ul>
+          <li>Design responsive e moderno</li>
+          <li>SEO e performance ottimizzate</li>
+          <li>Integrazione sistemi di pagamento</li>
+        </ul>
+        <a href="#contatti" class="btn btn-outline-primary mt-2">Richiedi un preventivo</a>
       </div>
-      <h3>Marketing Digitale</h3>
-      <p>Campagne pubblicitarie su Google, Facebook, Instagram e strategie di email marketing per acquisire lead qualificati e aumentare vendite.</p>
-      <ul>
-        <li>Gestione campagne social e Google Ads</li>
-        <li>Funnel di vendita e automazioni</li>
-        <li>Analisi dati e reportistica dettagliata</li>
-      </ul>
-      <a href="#contatti" class="btn-secondary">Scopri di più</a>
-    </div>
 
-    <div class="service-card glass reveal delay-3">
-      <div class="icon green">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 17l6-6 4 4 8-8 2 2-10 10-4-4-4 4z"/>
-        </svg>
+      <div class="service-card glass reveal">
+        <div class="icon purple">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+        <h3>Marketing Digitale</h3>
+        <p>Campagne pubblicitarie su Google, Facebook, Instagram e strategie email marketing.</p>
+        <ul>
+          <li>Gestione campagne social e Google Ads</li>
+          <li>Funnel di vendita e automazioni</li>
+          <li>Analisi dati e report dettagliati</li>
+        </ul>
+        <a href="#contatti" class="btn btn-outline-primary mt-2">Scopri di più</a>
       </div>
-      <h3>Automazioni AI</h3>
-      <p>Automatizziamo processi ripetitivi con AI e workflow intelligenti, risparmiando tempo e aumentando produttività.</p>
-      <ul>
-        <li>Bot per gestione clienti</li>
-        <li>Automazioni per marketing e vendita</li>
-        <li>Report automatici e analisi dati</li>
-      </ul>
-      <a href="#contatti" class="btn-secondary">Implementa AI</a>
-    </div>
 
-    <div class="service-card glass reveal delay-4">
-      <div class="icon orange">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-        </svg>
+      <div class="service-card glass reveal">
+        <div class="icon green">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <h3>Automazioni AI</h3>
+        <p>Automatizziamo processi ripetitivi con AI e workflow intelligenti, risparmiando tempo.</p>
+        <ul>
+          <li>Bot per gestione clienti</li>
+          <li>Automazioni marketing e vendita</li>
+          <li>Report automatici e analisi dati</li>
+        </ul>
+        <a href="#contatti" class="btn btn-outline-primary mt-2">Implementa AI</a>
       </div>
-      <h3>Lead Generation</h3>
-      <p>Creiamo strategie e strumenti per acquisire contatti profilati, aumentare conversioni e vendite in maniera scalabile.</p>
-      <ul>
-        <li>Landing page ad alta conversione</li>
-        <li>Email marketing automatizzato</li>
-        <li>Segmentazione e nurturing lead</li>
-      </ul>
-      <a href="#contatti" class="btn-secondary">Acquisisci lead</a>
-    </div>
 
-    <div class="service-card glass reveal delay-5">
-      <div class="icon red">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
-        </svg>
+      <div class="service-card glass reveal">
+        <div class="icon orange">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <h3>Lead Generation</h3>
+        <p>Strategie e strumenti per acquisire contatti profilati e aumentare conversioni.</p>
+        <ul>
+          <li>Landing page ad alta conversione</li>
+          <li>Email marketing automatizzato</li>
+          <li>Segmentazione e nurturing lead</li>
+        </ul>
+        <a href="#contatti" class="btn btn-outline-primary mt-2">Acquisisci lead</a>
       </div>
-      <h3>Branding & Design</h3>
-      <p>Costruiamo un’identità visiva forte e coerente, dal logo al packaging, creando comunicazione digitale che colpisce.</p>
-      <ul>
-        <li>Logo e identità visiva</li>
-        <li>Packaging e grafica digitale</li>
-        <li>Manuale di brand e linee guida</li>
-      </ul>
-      <a href="#contatti" class="btn-secondary">Crea il tuo brand</a>
-    </div>
 
-    <div class="service-card glass reveal delay-6">
-      <div class="icon teal">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 4h18v2H3V4zm0 6h12v2H3v-2zm0 6h18v2H3v-2z"/>
-        </svg>
+      <div class="service-card glass reveal">
+        <div class="icon red">
+          <i class="fa-solid fa-paintbrush"></i>
+        </div>
+        <h3>Branding & Design</h3>
+        <p>Costruiamo un’identità visiva forte, dal logo al packaging, creando comunicazione che colpisce.</p>
+        <ul>
+          <li>Logo e identità visiva</li>
+          <li>Packaging e grafica digitale</li>
+          <li>Manuale di brand e linee guida</li>
+        </ul>
+        <a href="#contatti" class="btn btn-outline-primary mt-2">Crea il tuo brand</a>
       </div>
-      <h3>Crescita Social</h3>
-      <p>Gestiamo e potenziamo i profili social con contenuti virali, strategie di engagement e aumento follower reale.</p>
-      <ul>
-        <li>Gestione completa social media</li>
-        <li>Creazione contenuti virali</li>
-        <li>Analisi dati e report performance</li>
-      </ul>
-      <a href="#contatti" class="btn-secondary">Potenzia i tuoi social</a>
+
+      <div class="service-card glass reveal">
+        <div class="icon teal">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3>Crescita Social</h3>
+        <p>Gestione e potenziamento profili social con contenuti virali e strategie di engagement.</p>
+        <ul>
+          <li>Gestione completa social media</li>
+          <li>Creazione contenuti virali</li>
+          <li>Analisi dati e report performance</li>
+        </ul>
+        <a href="#contatti" class="btn btn-outline-primary mt-2">Potenzia i tuoi social</a>
+      </div>
+
+    </section>
+
+    <section class="cta-final reveal mt-5">
+      <h2>Pronto a far crescere il tuo business?</h2>
+      <p>Contattaci e scopri come possiamo aiutarti con strategie digitali, AI e marketing su misura.</p>
+      <a id="contatti" href="contact.html" class="btn btn-primary btn-lg mt-3">Contattaci ora</a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER SEMPLIFICATO -->
+  <footer class="footer-premium text-center mt-5 py-4">
+    <div class="footer-container">
+      <div class="logo-footer mb-2">CRE<span>LORE</span></div>
+      <div class="footer-links mb-2">
+        <a href="privacy-policy.html" class="me-3">Privacy Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </div>
+      <div class="footer-copy">© 2026 Crelore — Innovazione Digitale</div>
     </div>
+  </footer>
 
-  </section>
+  <!-- JS BOOTSTRAP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <section class="cta-final reveal delay-7">
-    <h2>Pronto a far crescere il tuo business?</h2>
-    <p>Contattaci e scopri come possiamo aiutarti a raggiungere i tuoi obiettivi con strategie digitali, AI e marketing su misura.</p>
-    <a id="contatti" href="contact.html" class="btn-primary">Contattaci ora</a>
-  </section>
-
-<!-- Footer Premium -->
-<footer class="footer-premium">
-  <div class="footer-container">
-
-    <!-- Logo -->
-    <div class="logo-footer">
-      CRE<span>LORE</span>
-    </div>
-
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <a href="#" class="social-icon instagram" aria-label="Instagram">
-        <!-- Instagram SVG -->
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.347 3.608 1.322.975.975 1.26 2.243 1.322 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.365-.347 2.633-1.322 3.608-.975.975-2.243 1.26-3.608 1.322-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.365-.062-2.633-.347-3.608-1.322-.975-.975-1.26-2.243-1.322-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.365.347-2.633 1.322-3.608.975-.975 2.243-1.26 3.608-1.322C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.741 0 8.332.012 7.052.07 5.767.128 4.603.39 3.678 1.316 2.752 2.242 2.49 3.406 2.432 4.691.012 8.332 0 8.741 0 12s.012 3.668.07 4.947c.058 1.285.32 2.449 1.246 3.375.926.926 2.09 1.188 3.375 1.246C8.332 23.988 8.741 24 12 24s3.668-.012 4.947-.07c1.285-.058 2.449-.32 3.375-1.246.926-.926 1.188-2.09 1.246-3.375C23.988 15.668 24 15.259 24 12s-.012-3.668-.07-4.947c-.058-1.285-.32-2.449-1.246-3.375C21.758.39 20.594.128 19.309.07 18.03.012 17.621 0 14.362 0h-4.724z"/>
-          <circle cx="12" cy="12" r="3.2"/>
-          <circle cx="18.4" cy="5.6" r="1.44"/>
-        </svg>
-      </a>
-      <a href="#" class="social-icon facebook" aria-label="Facebook">
-        <!-- Facebook SVG -->
-        <svg viewBox="0 0 24 24">
-          <path d="M22.675 0H1.325C.594 0 .002.592.002 1.323v21.353C.002 23.406.594 24 1.325 24h11.497v-9.294H9.691V11.06h3.13V8.41c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.588l-.467 3.646h-3.121V24h6.117C23.406 24 24 23.406 24 22.676V1.324C24 .592 23.406 0 22.675 0z"/>
-        </svg>
-      </a>
-      <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
-        <!-- LinkedIn SVG -->
-        <svg viewBox="0 0 24 24">
-          <path d="M22.23 0H1.77C.792 0 0 .774 0 1.728V22.27C0 23.226.792 24 1.77 24H22.23C23.208 24 24 23.226 24 22.27V1.728C24 .774 23.208 0 22.23 0zM7.12 20.452H3.563V9.039H7.12v11.413zM5.343 7.605a2.098 2.098 0 1 1 0-4.196 2.098 2.098 0 0 1 0 4.196zM20.452 20.452h-3.558v-5.568c0-1.327-.026-3.036-1.852-3.036-1.853 0-2.135 1.445-2.135 2.938v5.666H9.434V9.039h3.414v1.558h.049c.476-.9 1.637-1.85 3.368-1.85 3.602 0 4.266 2.37 4.266 5.455v6.249z"/>
-        </svg>
-      </a>
-    </div>
-
-    <div class="footer-links">
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <a href="cookie-policy.html">Cookie Policy</a>
-</div>
-
-    <!-- Copyright -->
-    <div class="footer-copy">
-      © 2026 Crelore — Innovazione Digitale
-    </div>
-
-  </div>
-</footer>
-
-<!-- JS BOOTSTRAP -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- JS PERSONALIZZATO -->
-<script src="assets/js/main.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-
-    /* =========================
-       NAVBAR SCROLL EFFECT
-    ========================== */
-    const navbar = document.querySelector(".custom-navbar");
-
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    });
-
-    /* =========================
-       AUTO CLOSE MOBILE MENU
-    ========================== */
-    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
-    const navbarCollapse = document.querySelector(".navbar-collapse");
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            if (navbarCollapse.classList.contains("show")) {
-                new bootstrap.Collapse(navbarCollapse).hide();
-            }
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Reveal on scroll sicuro
+      const reveals = document.querySelectorAll(".reveal");
+      function revealOnScroll() {
+        reveals.forEach(el => {
+          const top = el.getBoundingClientRect().top;
+          if(top < window.innerHeight - 100) el.classList.add("active");
         });
+      }
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
+
+      // Navbar scrolled effect
+      const navbar = document.querySelector(".custom-navbar");
+      window.addEventListener("scroll", () => {
+        if(window.scrollY > 50) navbar.classList.add("scrolled");
+        else navbar.classList.remove("scrolled");
+      });
     });
-
-    /* =========================
-       ACTIVE LINK BY PAGE
-    ========================== */
-    const currentPage = window.location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-link").forEach(link => {
-        const linkPage = link.getAttribute("href");
-        if (linkPage === currentPage) {
-            link.classList.add("active");
-        }
-    });
-
-    /* =========================
-       REVEAL ON SCROLL
-    ========================== */
-    const reveals = document.querySelectorAll(".reveal");
-
-    function revealOnScroll() {
-        reveals.forEach(element => {
-            const windowHeight = window.innerHeight;
-            const elementTop = element.getBoundingClientRect().top;
-            const revealPoint = 100;
-
-            if (elementTop < windowHeight - revealPoint) {
-                element.classList.add("active");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-
-});
-</script>
-
-
+  </script>
 
 </body>
 </html>
