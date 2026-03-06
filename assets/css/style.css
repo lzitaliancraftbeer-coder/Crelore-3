@@ -313,11 +313,43 @@ html, body {
 .card h3 { margin: 15px 0; font-size: 1.3rem; }
 .card p { color: #aaa; font-size: 14px; }
 
-.icon { width: 50px; height: 50px; margin: 0 auto 15px; }
-.icon svg { width: 100%; height: 100%; fill: currentColor; }
-.icon.blue { color: var(--blue); }
-.icon.purple { color: var(--purple); }
-.icon.green { color: var(--green); }
+.icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glow icone servizi */
+
+.icon.blue i{
+  color: var(--blue);
+  text-shadow: 0 0 10px rgba(59,130,246,0.8),
+               0 0 20px rgba(59,130,246,0.6),
+               0 0 35px rgba(59,130,246,0.4);
+}
+
+.icon.purple i{
+  color: var(--purple);
+  text-shadow: 0 0 10px rgba(168,85,247,0.8),
+               0 0 20px rgba(168,85,247,0.6),
+               0 0 35px rgba(168,85,247,0.4);
+}
+
+.icon.green i{
+  color: var(--green);
+  text-shadow: 0 0 10px rgba(34,197,94,0.8),
+               0 0 20px rgba(34,197,94,0.6),
+               0 0 35px rgba(34,197,94,0.4);
+}
+
+.cadr:hover .icon i{
+   trasform: scale(1.15);
+   Transition: 0.3s ease;
+}  
 
 /* ===== PORTFOLIO ===== */
 .portfolio { padding: 100px 20px; max-width: 1200px; margin: auto; }
