@@ -347,7 +347,7 @@ html, body {
 }
 
 .cadr:hover .icon i{
-   trasform: scale(1.15);
+   transform: scale(1.15);
    Transition: 0.3s ease;
 }  
 
