@@ -833,3 +833,22 @@ font-size:16px;
 
 }
 
+/* =========================
+ICON COLORS GLOBAL
+========================= */
+
+.icon.blue i{
+color: var(--blue);
+text-shadow: 0 0 10px var(--blue);
+}
+
+.icon.purple i{
+color: var(--purple);
+text-shadow: 0 0 10px var(--purple);
+}
+
+.icon.green i{
+color: var(--green);
+text-shadow: 0 0 10px var(--green);
+}
+
