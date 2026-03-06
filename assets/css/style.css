@@ -720,3 +720,81 @@ padding:60px 20px;
 .legal-card{
 padding:25px;
 }
+
+/* =========================
+   HERO SERVIZI
+========================= */
+
+.hero-services{
+min-height:70vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:160px 20px 80px;
+position:relative;
+}
+
+.hero-services-content{
+max-width:900px;
+margin:auto;
+}
+
+/* badge sopra il titolo */
+
+.hero-badge{
+display:inline-block;
+padding:8px 18px;
+border-radius:30px;
+font-size:13px;
+font-weight:600;
+margin-bottom:20px;
+
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+}
+
+/* titolo */
+
+.hero-services h1{
+font-size:3rem;
+font-weight:800;
+margin-bottom:20px;
+line-height:1.2;
+}
+
+/* testo */
+
+.hero-services-text{
+font-size:18px;
+color:#aaa;
+margin-bottom:40px;
+}
+
+/* bottoni */
+
+.hero-services .hero-buttons{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+/* responsive */
+
+@media (max-width:768px){
+
+.hero-services{
+padding:140px 20px 60px;
+}
+
+.hero-services h1{
+font-size:2.2rem;
+}
+
+.hero-services-text{
+font-size:16px;
+}
+
+}
