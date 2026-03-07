@@ -1060,7 +1060,7 @@ text-shadow: 0 0 10px var(--green);
 .hero-faq {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background:linear-gradient(135deg,#6a5cff,#00c6ff);
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -1102,7 +1102,7 @@ text-shadow: 0 0 10px var(--green);
 
 /* Gradient text */
 .hero-faq .gradient-text {
-  background: linear-gradient(90deg, #00F5A0, #00D9F5);
+  background:linear-gradient(135deg,#6a5cff,#00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
