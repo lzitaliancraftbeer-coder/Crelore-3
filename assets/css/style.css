@@ -1056,3 +1056,53 @@ text-shadow: 0 0 10px var(--green);
 .faq-item.active .faq-answer{
   max-height:200px;
 }
+
+.hero-faq {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.hero-faq .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-faq h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.hero-faq .hero-text {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.hero-faq .hero-illustration img {
+  max-width: 400px;
+  width: 100%;
+  margin-top: 30px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Gradient text */
+.hero-faq .gradient-text {
+  background: linear-gradient(90deg, #00F5A0, #00D9F5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
