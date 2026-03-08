@@ -998,6 +998,10 @@ text-shadow: 0 0 10px var(--green);
 
 /* ===== FAQ ===== */
 
+.hero-faq{
+  padding-top:140px;
+}
+
 .faq{
   padding:100px 20px;
   max-width:900px;
