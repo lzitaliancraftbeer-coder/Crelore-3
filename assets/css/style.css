@@ -999,6 +999,18 @@ text-shadow: 0 0 10px var(--green);
 /* ===== FAQ ===== */
 
 .hero-faq{
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+  padding:140px 20px 60px;
+}
+
+.hero-illustration img{
+  max-width:350px;
+  margin-top:30px;
+}
+
+.hero-faq{
   padding-top:140px;
 }
 
