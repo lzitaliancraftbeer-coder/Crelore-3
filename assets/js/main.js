@@ -1,41 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const proofSection = document.querySelector(".proof-section");
+
   const proofNumbers = document.querySelectorAll(".proof-item h2");
 
-  if (proofSection && proofNumbers.length > 0) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          proofNumbers.forEach((num, idx) => {
-            const target = +num.getAttribute("data-target");
-            const duration = 2000; // 2 secondi
-            const delay = idx * 300;
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        proofNumbers.forEach((num, idx) => {
+          const target = +num.getAttribute("data-target");
+          const duration = 2000; // animazione 2s
+          const start = performance.now();
 
-            setTimeout(() => {
-              let startTime = null;
+          function update(currentTime) {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            num.textContent = Math.floor(progress * target);
 
-              function animate(timestamp) {
-                if (!startTime) startTime = timestamp;
-                const elapsed = timestamp - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                num.textContent = Math.floor(progress * target);
-                if (progress < 1) {
-                  requestAnimationFrame(animate);
-                } else {
-                  num.textContent = target;
-                }
-              }
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              num.textContent = target;
+            }
+          }
 
-              requestAnimationFrame(animate);
-            }, delay);
-          });
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+          setTimeout(() => {
+            requestAnimationFrame(update);
+          }, idx * 300); // ritardo tra i numeri
+        });
 
-    observer.observe(proofSection);
-  }
+        obs.unobserve(entry.target); // triggera una sola volta
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const proofSection = document.querySelector(".proof-section");
+  if (proofSection) observer.observe(proofSection);
+
 });
 
   /* ============================= */
