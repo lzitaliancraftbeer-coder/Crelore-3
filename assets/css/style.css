@@ -1072,3 +1072,41 @@ text-shadow: 0 0 10px var(--green);
 .faq-item.active .faq-answer{
   max-height:200px;
 }
+
+/* FAQ animation improvement */
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:max-height .45s ease;
+}
+
+.faq-item.active .faq-answer{
+max-height:220px;
+}
+
+/* Icon rotation */
+
+.faq-icon{
+transition:transform .35s ease;
+font-size:22px;
+}
+
+.faq-item.active .faq-icon{
+transform:rotate(45deg);
+}
+
+/* Glow premium */
+
+.faq-item{
+transition:all .35s ease;
+}
+
+.faq-item:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(120,120,255,0.25);
+}
+
+.faq-item.active{
+box-shadow:0 0 25px rgba(162,89,255,0.35);
+}
