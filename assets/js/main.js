@@ -1,5 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+// Contatore animato Proof
+const proofNumbers = document.querySelectorAll(".proof-item h2");
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      proofNumbers.forEach(num => {
+        const target = +num.getAttribute("data-target");
+        let count = 0;
+        const step = Math.ceil(target / 100); // incremento
+        const interval = setInterval(() => {
+          count += step;
+          if (count >= target) {
+            num.textContent = target;
+            clearInterval(interval);
+          } else {
+            num.textContent = count;
+          }
+        }, 20); // velocità animazione
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const proofSection = document.querySelector(".proof-grid");
+if (proofSection) counterObserver.observe(proofSection);
+
   /* ============================= */
   /* COOKIE BANNER */
   /* ============================= */
