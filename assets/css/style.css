@@ -1188,3 +1188,26 @@ animation:glowPulse 6s ease-in-out infinite;
 100%{opacity:0.5; transform:translate(-50%,-50%) scale(1);}
 
 }
+
+.proof {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.proof-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.proof-item h2 {
+  font-size: 2.5rem;
+  color: #ff6f61; /* colore accent */
+  margin-bottom: 10px;
+}
+
+.proof-item p {
+  font-size: 1.1rem;
+  color: #555;
+}
