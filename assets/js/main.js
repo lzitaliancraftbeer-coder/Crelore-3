@@ -1,40 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+  const proofSection = document.querySelector(".proof-section");
   const proofNumbers = document.querySelectorAll(".proof-item h2");
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        proofNumbers.forEach((num, idx) => {
-          const target = +num.getAttribute("data-target");
-          const duration = 2000; // animazione 2s
-          const start = performance.now();
+  if (proofSection && proofNumbers.length > 0) {
+    const animateNumber = (num) => {
+      const target = +num.getAttribute("data-target");
+      let count = 0;
+      const duration = 2000; // durata animazione totale
+      const stepTime = Math.max(Math.floor(duration / target), 10);
 
-          function update(currentTime) {
-            const elapsed = currentTime - start;
-            const progress = Math.min(elapsed / duration, 1);
-            num.textContent = Math.floor(progress * target);
+      const interval = setInterval(() => {
+        count++;
+        num.textContent = count;
+        if (count >= target) clearInterval(interval);
+      }, stepTime);
+    };
 
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              num.textContent = target;
-            }
-          }
+    // IntersectionObserver per trigger a comparsa
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          proofNumbers.forEach((num, idx) => {
+            setTimeout(() => animateNumber(num), idx * 300); // leggero delay tra numeri
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
 
-          setTimeout(() => {
-            requestAnimationFrame(update);
-          }, idx * 300); // ritardo tra i numeri
-        });
-
-        obs.unobserve(entry.target); // triggera una sola volta
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const proofSection = document.querySelector(".proof-section");
-  if (proofSection) observer.observe(proofSection);
-
+    observer.observe(proofSection);
+  }
 });
 
   /* ============================= */
