@@ -42,10 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     observer.observe(proofSection);
   }
-});
-
-  // ... eventuali altri script
-});
 
   /* ============================= */
   /* COOKIE BANNER */
