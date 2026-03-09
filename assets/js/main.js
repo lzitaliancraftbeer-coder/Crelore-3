@@ -123,4 +123,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }
 
+  /* ============================= */
+  /* FAQ ACCORDION */
+  /* ============================= */
+
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  if (faqItems.length > 0) {
+
+    faqItems.forEach(item => {
+
+      const question = item.querySelector(".faq-question");
+
+      question.addEventListener("click", () => {
+
+        const isOpen = item.classList.contains("active");
+
+        faqItems.forEach(i => i.classList.remove("active"));
+
+        if (!isOpen) {
+          item.classList.add("active");
+        }
+
+      });
+
+    });
+
+  }
+
 });
