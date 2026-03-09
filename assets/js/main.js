@@ -212,3 +212,43 @@ counters.forEach(counter => {
 observer.observe(counter);
 
 });
+
+// =======================
+// COUNTER + REVEAL
+// =======================
+const counters = document.querySelectorAll(".counter");
+const revealItems = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+
+      // REVEAL
+      entry.target.classList.add("active");
+
+      // COUNTER
+      if(entry.target.classList.contains("counter")){
+        const counter = entry.target;
+        const target = +counter.dataset.target;
+        let count = 0;
+        const update = () => {
+          const increment = target / 120;
+          if(count < target){
+            count += increment;
+            counter.innerText = Math.floor(count);
+            requestAnimationFrame(update);
+          }else{
+            counter.innerText = target;
+          }
+        };
+        update();
+      }
+
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.6});
+
+// Osserva sia reveal che counter
+revealItems.forEach(item => observer.observe(item));
+counters.forEach(counter => observer.observe(counter));
