@@ -1,44 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ============================= */
-  /* CONTATORE AVANZATO PROOF */
-  /* ============================= */
-  const proofItems = document.querySelectorAll(".proof-item h2");
-  const proofSection = document.querySelector(".proof-grid");
+  // =============================
+// CONTATORI PROOF
+// =============================
+const proofSection = document.querySelector(".proof-section");
+const proofNumbers = document.querySelectorAll(".proof-item h2");
 
-  if (proofSection && proofItems.length > 0) {
-    const proofObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          proofItems.forEach((num, index) => {
-            const target = +num.getAttribute("data-target");
-            let start = 0;
-            const duration = 2000; // durata animazione totale in ms
-            const delay = index * 300; // delay progressivo tra i numeri
-            const startTime = performance.now();
-
-            function animateCounter(currentTime) {
-              const elapsed = currentTime - startTime - delay;
-              const progress = Math.min(Math.max(elapsed / duration, 0), 1);
-              num.textContent = Math.floor(progress * target);
-
-              if (progress < 1) {
-                requestAnimationFrame(animateCounter);
-              } else {
+if (proofSection && proofNumbers.length > 0) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        proofNumbers.forEach((num, idx) => {
+          const target = +num.getAttribute("data-target");
+          let count = 0;
+          const stepTime = 20; // ms
+          const increment = Math.ceil(target / (2000 / stepTime)); // animazione 2s
+          setTimeout(() => {
+            const interval = setInterval(() => {
+              count += increment;
+              if (count >= target) {
                 num.textContent = target;
+                clearInterval(interval);
+              } else {
+                num.textContent = count;
               }
-            }
+            }, stepTime);
+          }, idx * 300); // delay tra numeri
+        });
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
 
-            requestAnimationFrame(animateCounter);
-          });
-
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    proofObserver.observe(proofSection);
-  }
+  observer.observe(proofSection);
+}
 
   /* ============================= */
   /* COOKIE BANNER */
