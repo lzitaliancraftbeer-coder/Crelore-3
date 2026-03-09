@@ -1,35 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const proofSection = document.querySelector(".proof-section");
   const proofNumbers = document.querySelectorAll(".proof-item h2");
 
-  if (proofSection && proofNumbers.length > 0) {
-    const animateNumber = (num) => {
-      const target = +num.getAttribute("data-target");
-      let count = 0;
-      const duration = 2000; // durata animazione totale
-      const stepTime = Math.max(Math.floor(duration / target), 10);
+  proofNumbers.forEach((num, idx) => {
+    const target = +num.getAttribute("data-target");
+    let count = 0;
+    const duration = 2000; // durata totale animazione in ms
+    const frameRate = 30; // aggiornamenti al secondo
+    const totalFrames = Math.round((duration / 1000) * frameRate);
+    const increment = target / totalFrames;
 
+    setTimeout(() => {
       const interval = setInterval(() => {
-        count++;
-        num.textContent = count;
-        if (count >= target) clearInterval(interval);
-      }, stepTime);
-    };
-
-    // IntersectionObserver per trigger a comparsa
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          proofNumbers.forEach((num, idx) => {
-            setTimeout(() => animateNumber(num), idx * 300); // leggero delay tra numeri
-          });
-          obs.unobserve(entry.target);
+        count += increment;
+        if (count >= target) {
+          num.textContent = target;
+          clearInterval(interval);
+        } else {
+          num.textContent = Math.floor(count);
         }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(proofSection);
-  }
+      }, 1000 / frameRate);
+    }, idx * 300); // delay sequenziale tra numeri
+  });
 });
 
   /* ============================= */
