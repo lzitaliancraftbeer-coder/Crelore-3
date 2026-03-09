@@ -1114,83 +1114,68 @@ box-shadow:0 0 25px rgba(162,89,255,0.35);
 /* =========================
 CINEMATIC HERO BACKGROUND
 ========================= */
-
-.hero{
-position:relative;
-overflow:hidden;
+.hero {
+  position: relative;
+  overflow: hidden;
 }
 
 /* Gradient animato */
-
-.hero::before{
-content:"";
-position:absolute;
-top:-50%;
-left:-50%;
-width:200%;
-height:200%;
-
-background:linear-gradient(
-120deg,
-#5b7cfa,
-#7b5cff,
-#a259ff,
-#5b7cfa
-);
-
-background-size:300% 300%;
-
-animation:gradientMove 18s ease infinite;
-
-opacity:0.15;
-z-index:-2;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    #5b7cfa,
+    #7b5cff,
+    #a259ff,
+    #5b7cfa
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 18s ease infinite;
+  opacity: 0.15;
+  z-index: -2;
 }
 
 /* Glow centrale */
-
-.hero::after{
-content:"";
-position:absolute;
-top:50%;
-left:50%;
-
-width:700px;
-height:700px;
-
-transform:translate(-50%,-50%);
-
-background:radial-gradient(circle,
-rgba(120,120,255,0.35),
-transparent 70%
-);
-
-filter:blur(120px);
-
-z-index:-1;
-
-animation:glowPulse 6s ease-in-out infinite;
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,
+    rgba(120,120,255,0.35),
+    transparent 70%
+  );
+  filter: blur(120px);
+  z-index: -1;
+  animation: glowPulse 6s ease-in-out infinite;
 }
 
 /* Animazioni */
-
-@keyframes gradientMove{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes glowPulse{
-
-0%{opacity:0.5; transform:translate(-50%,-50%) scale(1);}
-50%{opacity:0.9; transform:translate(-50%,-50%) scale(1.15);}
-100%{opacity:0.5; transform:translate(-50%,-50%) scale(1);}
-
+@keyframes glowPulse {
+  0% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: 0.9; transform: translate(-50%,-50%) scale(1.15); }
+  100% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); }
 }
 
+/* =========================
+PROOF SECTION
+========================= */
 .proof-section {
-  background-color: #1b1b1b;
+  background-color: #050505; /* scuro come l’hero */
   color: #fff;
   padding: 80px 20px;
   text-align: center;
@@ -1201,6 +1186,13 @@ animation:glowPulse 6s ease-in-out infinite;
   justify-content: center;
   gap: 60px;
   flex-wrap: wrap;
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .proof-item h2 {
@@ -1225,3 +1217,22 @@ animation:glowPulse 6s ease-in-out infinite;
   color: #fff;
   margin: 0;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .proof-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .proof-item h2 {
+    font-size: 2.5rem;
+  }
+  .proof-item h2::before {
+    font-size: 2rem;
+    left: -1rem;
+  }
+  .proof-item p {
+    font-size: 1rem;
+  }
+}
+
