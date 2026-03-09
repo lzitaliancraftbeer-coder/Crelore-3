@@ -164,3 +164,51 @@ counter.innerText = target;
 updateCount();
 
 });
+
+const counters = document.querySelectorAll(".counter");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+const counter = entry.target;
+const target = +counter.dataset.target;
+
+let count = 0;
+
+const update = () => {
+
+const increment = target / 120;
+
+if(count < target){
+
+count += increment;
+counter.innerText = Math.floor(count);
+
+requestAnimationFrame(update);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+};
+
+update();
+
+observer.unobserve(counter);
+
+}
+
+});
+
+},{threshold:0.6});
+
+counters.forEach(counter => {
+
+observer.observe(counter);
+
+});
