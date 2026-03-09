@@ -5,41 +5,44 @@ document.addEventListener("DOMContentLoaded", function () {
   // CONTATORI PROOF
   // =============================
   {
-    const proofSection = document.querySelector(".proof-section");
-    const proofNumbers = document.querySelectorAll(".proof-item h2");
+      const proofSection = document.querySelector(".proof-section");
+  const proofNumbers = document.querySelectorAll(".proof-item h2");
 
-    if (proofSection && proofNumbers.length > 0) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            proofNumbers.forEach((num, idx) => {
-              const target = +num.getAttribute("data-target");
-              let count = 0;
-              const duration = 2000;
-              const stepTime = 20;
-              const steps = Math.ceil(duration / stepTime);
-              const increment = target / steps;
+  if (proofSection && proofNumbers.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          proofNumbers.forEach((num, idx) => {
+            const target = +num.getAttribute("data-target");
+            let start = 0;
+            const duration = 2000; // durata animazione in ms
+            const delay = idx * 300; // delay tra numeri
 
-              setTimeout(() => {
-                const interval = setInterval(() => {
-                  count += increment;
-                  if (count >= target) {
-                    num.textContent = target;
-                    clearInterval(interval);
-                  } else {
-                    num.textContent = Math.floor(count);
-                  }
-                }, stepTime);
-              }, idx * 300);
-            });
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
+            function animate(currentTime, startTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              num.textContent = Math.floor(progress * target);
 
-      observer.observe(proofSection);
-    }
+              if (progress < 1) {
+                requestAnimationFrame((time) => animate(time, startTime));
+              } else {
+                num.textContent = target;
+              }
+            }
+
+            setTimeout(() => {
+              requestAnimationFrame((time) => animate(time, time));
+            }, delay);
+          });
+
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(proofSection);
   }
+});
 
   // ... eventuali altri script
 });
