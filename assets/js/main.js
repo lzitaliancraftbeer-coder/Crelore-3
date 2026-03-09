@@ -213,42 +213,33 @@ observer.observe(counter);
 
 });
 
-// =======================
-// COUNTER + REVEAL
-// =======================
-const counters = document.querySelectorAll(".counter");
-const revealItems = document.querySelectorAll(".reveal");
+const counters = document.querySelectorAll('.counter');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
+const speed = 200;
 
-      // REVEAL
-      entry.target.classList.add("active");
+counters.forEach(counter => {
 
-      // COUNTER
-      if(entry.target.classList.contains("counter")){
-        const counter = entry.target;
-        const target = +counter.dataset.target;
-        let count = 0;
-        const update = () => {
-          const increment = target / 120;
-          if(count < target){
-            count += increment;
-            counter.innerText = Math.floor(count);
-            requestAnimationFrame(update);
-          }else{
-            counter.innerText = target;
-          }
-        };
-        update();
-      }
+const updateCount = () => {
 
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:0.6});
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
 
-// Osserva sia reveal che counter
-revealItems.forEach(item => observer.observe(item));
-counters.forEach(counter => observer.observe(counter));
+const increment = target / speed;
+
+if(count < target){
+
+counter.innerText = Math.ceil(count + increment);
+
+setTimeout(updateCount,20);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+};
+
+updateCount();
+
+});
