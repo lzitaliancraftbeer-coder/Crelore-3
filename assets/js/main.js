@@ -1,31 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const proofNumbers = document.querySelectorAll(".proof-item h2");
-
-  proofNumbers.forEach((num, idx) => {
-    const target = +num.getAttribute("data-target");
-    let count = 0;
-    const duration = 2000; // durata totale animazione in ms
-    const frameRate = 30; // aggiornamenti al secondo
-    const totalFrames = Math.round((duration / 1000) * frameRate);
-    const increment = target / totalFrames;
-
-    setTimeout(() => {
-      const interval = setInterval(() => {
-        count += increment;
-        if (count >= target) {
-          num.textContent = target;
-          clearInterval(interval);
-        } else {
-          num.textContent = Math.floor(count);
-        }
-      }, 1000 / frameRate);
-    }, idx * 300); // delay sequenziale tra numeri
-  });
-});
 
   /* ============================= */
   /* COOKIE BANNER */
   /* ============================= */
+
   const cookieBanner = document.getElementById("cookie-banner");
 
   if (cookieBanner) {
@@ -51,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ============================= */
   /* REVEAL ON SCROLL */
   /* ============================= */
+
   const revealElements = document.querySelectorAll(".reveal");
 
   if (revealElements.length > 0) {
@@ -69,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ============================= */
   /* NAVBAR SCROLL EFFECT */
   /* ============================= */
+
   const navbar = document.querySelector(".custom-navbar");
 
   if (navbar) {
@@ -84,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ============================= */
   /* BOOTSTRAP MOBILE AUTO-CLOSE */
   /* ============================= */
+
   const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
   const navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -103,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ============================= */
   /* ACTIVE LINK BY SECTION */
   /* ============================= */
+
   const sections = document.querySelectorAll("section[id]");
   const menuLinks = document.querySelectorAll(".custom-navbar .nav-link");
 
@@ -118,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
           menuLinks.forEach(link => {
             link.classList.remove("active");
+
             if (link.getAttribute("href") === "#" + sectionId) {
               link.classList.add("active");
             }
@@ -130,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ============================= */
   /* FAQ ACCORDION */
   /* ============================= */
+
   const faqItems = document.querySelectorAll(".faq-item");
 
   if (faqItems.length > 0) {
