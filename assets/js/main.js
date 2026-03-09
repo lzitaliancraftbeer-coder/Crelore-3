@@ -1,39 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ... COOKIE BANNER, NAVBAR, REVEAL ecc.
 
   // =============================
-// CONTATORI PROOF
-// =============================
-const proofSection = document.querySelector(".proof-section");
-const proofNumbers = document.querySelectorAll(".proof-item h2");
+  // CONTATORI PROOF
+  // =============================
+  {
+    const proofSection = document.querySelector(".proof-section");
+    const proofNumbers = document.querySelectorAll(".proof-item h2");
 
-if (proofSection && proofNumbers.length > 0) {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        proofNumbers.forEach((num, idx) => {
-          const target = +num.getAttribute("data-target");
-          let count = 0;
-          const stepTime = 20; // ms
-          const increment = Math.ceil(target / (2000 / stepTime)); // animazione 2s
-          setTimeout(() => {
-            const interval = setInterval(() => {
-              count += increment;
-              if (count >= target) {
-                num.textContent = target;
-                clearInterval(interval);
-              } else {
-                num.textContent = count;
-              }
-            }, stepTime);
-          }, idx * 300); // delay tra numeri
+    if (proofSection && proofNumbers.length > 0) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            proofNumbers.forEach((num, idx) => {
+              const target = +num.getAttribute("data-target");
+              let count = 0;
+              const duration = 2000;
+              const stepTime = 20;
+              const steps = Math.ceil(duration / stepTime);
+              const increment = target / steps;
+
+              setTimeout(() => {
+                const interval = setInterval(() => {
+                  count += increment;
+                  if (count >= target) {
+                    num.textContent = target;
+                    clearInterval(interval);
+                  } else {
+                    num.textContent = Math.floor(count);
+                  }
+                }, stepTime);
+              }, idx * 300);
+            });
+            obs.unobserve(entry.target);
+          }
         });
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
+      }, { threshold: 0.5 });
 
-  observer.observe(proofSection);
-}
+      observer.observe(proofSection);
+    }
+  }
+
+  // ... eventuali altri script
+});
 
   /* ============================= */
   /* COOKIE BANNER */
