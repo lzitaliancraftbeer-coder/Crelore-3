@@ -1,5 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+// =============================
+// CONTATORE AVANZATO PROOF CON + E DELAY
+// =============================
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      counters.forEach((counter, index) => {
+        const target = +counter.getAttribute("data-target");
+        let start = 0;
+        const duration = 2000;
+        const startTime = performance.now();
+        const delay = index * 300; // delay progressivo tra i contatori
+
+        function animateCounter(currentTime) {
+          const elapsed = currentTime - startTime - delay;
+          const progress = Math.min(Math.max(elapsed / duration, 0), 1);
+          counter.textContent = Math.floor(progress * target);
+
+          if (progress < 1) {
+            requestAnimationFrame(animateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        }
+
+        requestAnimationFrame(animateCounter);
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const proofSection = document.querySelector(".proof-grid");
+if (proofSection) counterObserver.observe(proofSection);
+
 // Contatore animato Proof
 const proofNumbers = document.querySelectorAll(".proof-item h2");
 
