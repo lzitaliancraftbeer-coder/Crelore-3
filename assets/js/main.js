@@ -1,5 +1,3 @@
-console.log("MAIN JS CARICATO");
-
 document.addEventListener("DOMContentLoaded", function () {
   const proofNumbers = document.querySelectorAll(".proof-item h2");
 
