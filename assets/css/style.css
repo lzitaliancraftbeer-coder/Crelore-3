@@ -579,13 +579,13 @@ html, body {
   flex: 1;
 }
 
-.cookie-banner a {
+#cookie-banner a {
   color: var(--blue);
   font-weight: 600;
   text-decoration: none;
 }
 
-.cookie-banner a:hover {
+#cookie-banner a:hover {
   text-decoration: underline;
 }
 
