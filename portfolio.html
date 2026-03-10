@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page Ristorante | CreLore Portfolio</title>
-    <meta name="description" content="Scopri il progetto Landing Page Ristorante realizzato da CreLore: design responsive, UX/UI ottimizzata e performance elevate.">
+    <title>Portfolio | CreLore</title>
     <!-- FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <!-- BOOTSTRAP -->
@@ -12,7 +11,7 @@
     <!-- FONTAWESOME -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- CSS PERSONALIZZATO -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -22,8 +21,8 @@
     <p>
       Utilizziamo cookie tecnici e, previo consenso, cookie di analisi per migliorare l’esperienza.
       Leggi la nostra 
-      <a href="../privacy-policy.html">Privacy Policy</a> e 
-      <a href="../cookie-policy.html">Cookie Policy</a>.
+      <a href="privacy-policy.html">Privacy Policy</a> e 
+      <a href="cookie-policy.html">Cookie Policy</a>.
     </p>
     <div class="cookie-buttons">
       <button class="btn-accept" onclick="acceptCookies()">Accetta</button>
@@ -35,39 +34,55 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container">
-    <a class="navbar-brand" href="../index.html">CRELORE</a>
+    <a class="navbar-brand" href="index.html">CRELORE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="../servizi.html">Servizi</a></li>
-        <li class="nav-item"><a class="nav-link" href="../faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO PROGETTO -->
+<!-- HERO -->
 <section class="hero">
-    <h1 class="gradient-text">Landing Page Ristorante</h1>
-    <p class="hero-text">Un progetto di CreLore: design moderno, UX/UI ottimizzata e performance elevate per il tuo business online.</p>
+    <h1 class="gradient-text">I nostri progetti digitali</h1>
+    <p class="hero-text">Scopri alcuni siti e soluzioni digitali sviluppate da CreLore.</p>
 </section>
 
-<!-- DESCRIZIONE PROGETTO -->
-<section class="project-description reveal">
+<!-- SEZIONE PORTFOLIO / CARDS PROGETTI -->
+<section class="services reveal">
     <div class="container">
-        <h2>Dettagli del progetto</h2>
-        <p>Questa landing page è stata progettata per aumentare le conversioni e migliorare l'esperienza utente. Abbiamo utilizzato layout responsive, animazioni leggere e ottimizzazione SEO per garantire visibilità e performance.</p>
-        <ul>
-            <li>Design responsive e mobile-first</li>
-            <li>SEO ottimizzata per Google</li>
-            <li>Animazioni leggere e performance elevate</li>
-            <li>UX/UI studiata per massimizzare le conversioni</li>
-        </ul>
-        <img src="../assets/img/progetto-ristorante.jpg" alt="Landing Page Ristorante" class="img-fluid mt-3">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="cards">
+            <!-- Esempio card progetto -->
+            <div class="card">
+                <a href="progetti/landing-ristorante.html">
+                    <img src="assets/img/progetto-ristorante.jpg" alt="Landing Page Ristorante">
+                    <h3>Landing Page Ristorante</h3>
+                    <p>Web Design, UX/UI</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="progetti/ecommerce-fashion.html">
+                    <img src="assets/img/progetto-ecommerce.jpg" alt="E-commerce Fashion">
+                    <h3>E-commerce Fashion</h3>
+                    <p>Sviluppo Web, Shopify</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="progetti/sito-azienda-ai.html">
+                    <img src="assets/img/progetto-ai.jpg" alt="Sito Azienda AI">
+                    <h3>Sito Azienda AI</h3>
+                    <p>Web Design, Intelligenza Artificiale</p>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -79,8 +94,8 @@
       <!-- social SVG... -->
     </div>
     <div class="footer-links">
-      <a href="../privacy-policy.html">Privacy Policy</a>
-      <a href="../cookie-policy.html">Cookie Policy</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="cookie-policy.html">Cookie Policy</a>
     </div>
     <div class="footer-copy">
       © 2026 Crelore — Innovazione Digitale
@@ -90,7 +105,47 @@
 
 <!-- JS BOOTSTRAP -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/js/main.js"></script>
+<!-- JS PERSONALIZZATO -->
+<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Navbar scroll effect
+    const navbar = document.querySelector(".custom-navbar");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) navbar.classList.add("scrolled");
+        else navbar.classList.remove("scrolled");
+    });
+
+    // Auto close mobile menu
+    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (navbarCollapse.classList.contains("show")) {
+                new bootstrap.Collapse(navbarCollapse).hide();
+            }
+        });
+    });
+
+    // Active link by page
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.getAttribute("href") === currentPage) link.classList.add("active");
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll(".reveal");
+    function revealOnScroll() {
+        reveals.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const revealPoint = 100;
+            if (elementTop < window.innerHeight - revealPoint) el.classList.add("active");
+        });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+});
+</script>
 
 </body>
 </html>
