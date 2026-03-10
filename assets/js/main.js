@@ -6,12 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const cookieBanner = document.getElementById("cookie-banner");
 
-  if (cookieBanner) {
-    if (localStorage.getItem("cookieConsent")) {
-      cookieBanner.style.display = "none";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
+  if (localStorage.getItem("cookieConsent")) {
+  cookieBanner.style.display = "none";
+}
 
     window.acceptCookies = function () {
       localStorage.setItem("cookieConsent", "accepted");
@@ -22,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.rejectCookies = function () {
       localStorage.setItem("cookieConsent", "rejected");
       cookieBanner.style.display = "none";
-      document.body.style.overflow = "auto";
     };
   }
 
@@ -134,112 +130,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-const counters = document.querySelectorAll('.counter');
-
-const speed = 200;
-
-counters.forEach(counter => {
-
-const updateCount = () => {
-
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
-
-const increment = target / speed;
-
-if(count < target){
-
-counter.innerText = Math.ceil(count + increment);
-
-setTimeout(updateCount,20);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCount();
-
-});
-
-const counters = document.querySelectorAll(".counter");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-const counter = entry.target;
-const target = +counter.dataset.target;
-
-let count = 0;
-
-const update = () => {
-
-const increment = target / 120;
-
-if(count < target){
-
-count += increment;
-counter.innerText = Math.floor(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-update();
-
-observer.unobserve(counter);
-
-}
-
-});
-
-},{threshold:0.6});
-
-counters.forEach(counter => {
-
-observer.observe(counter);
-
-});
-
-const counters = document.querySelectorAll('.counter');
-
-const speed = 200;
-
-counters.forEach(counter => {
-
-const updateCount = () => {
-
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
-
-const increment = target / speed;
-
-if(count < target){
-
-counter.innerText = Math.ceil(count + increment);
-
-setTimeout(updateCount,20);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCount();
-
-});
