@@ -1184,3 +1184,82 @@ NAVBAR PREMIUM BUTTON
   box-shadow:0 12px 30px rgba(90,100,255,0.35);
   background-position:right center;
 }
+
+/* =========================
+PORTFOLIO LAYOUT
+========================= */
+
+.portfolio-section{
+  padding:100px 20px;
+}
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+
+/* =========================
+PORTFOLIO CARD
+========================= */
+
+.portfolio-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  background:#111;
+  transition:all 0.4s ease;
+  cursor:pointer;
+}
+
+.portfolio-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  transition:transform 0.6s ease;
+}
+
+.portfolio-content{
+  padding:22px;
+}
+
+.portfolio-content h3{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.portfolio-content p{
+  font-size:14px;
+  opacity:0.7;
+}
+
+/* =========================
+PORTFOLIO HOVER EFFECT
+========================= */
+
+.portfolio-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+}
+
+.portfolio-card:hover img{
+  transform:scale(1.08);
+}
+
+.portfolio-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0)
+  );
+  opacity:0;
+  transition:0.4s;
+}
+
+.portfolio-card:hover::after{
+  opacity:1;
+}
