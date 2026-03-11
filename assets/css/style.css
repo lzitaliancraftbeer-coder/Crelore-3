@@ -1263,3 +1263,45 @@ PORTFOLIO HOVER EFFECT
 .portfolio-card:hover::after{
   opacity:1;
 }
+
+/* =========================
+PORTFOLIO WEBSITE PREVIEW
+========================= */
+
+.portfolio-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  background:#0f172a;
+  transition:all 0.4s ease;
+  display:block;
+}
+
+.portfolio-preview{
+  height:260px;
+  overflow:hidden;
+}
+
+.portfolio-preview img{
+  width:100%;
+  transform:translateY(0);
+  transition:transform 6s ease;
+}
+
+.portfolio-card:hover .portfolio-preview img{
+  transform:translateY(-35%);
+}
+
+.portfolio-content{
+  padding:22px;
+}
+
+.portfolio-content h3{
+  font-size:20px;
+  margin-bottom:6px;
+}
+
+.portfolio-content p{
+  font-size:14px;
+  opacity:0.7;
+}
