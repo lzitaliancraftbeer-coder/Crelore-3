@@ -1163,3 +1163,21 @@ box-shadow:0 0 25px rgba(162,89,255,0.35);
   opacity:1;
   transform:translateY(0);
 }
+
+/* =========================
+NAVBAR CTA BUTTON
+========================= */
+
+.btn-primary-nav{
+  background: linear-gradient(135deg,#5b7cfa,#7b5cff);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary-nav:hover{
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
