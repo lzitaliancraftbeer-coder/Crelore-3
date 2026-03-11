@@ -1305,3 +1305,24 @@ PORTFOLIO WEBSITE PREVIEW
   font-size:14px;
   opacity:0.7;
 }
+
+/* =========================
+PROJECT BUTTON
+========================= */
+
+.project-button{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 24px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#5b7cfa,#7b5cff);
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+  transition:all 0.3s ease;
+}
+
+.project-button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(90,100,255,0.35);
+}
