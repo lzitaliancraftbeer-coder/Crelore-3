@@ -1334,3 +1334,9 @@ RELATED PROJECTS
 .related-projects{
   padding:100px 20px;
 }
+
+.card img{
+width:100%;
+height:auto;
+display:block;
+}
