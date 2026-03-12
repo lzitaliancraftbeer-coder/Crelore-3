@@ -1340,3 +1340,31 @@ width:100%;
 height:auto;
 display:block;
 }
+
+/* animazione preview desktop */
+
+.portfolio-card:hover .portfolio-preview img{
+transform:translateY(-35%);
+}
+
+/* animazione automatica su mobile */
+
+@media (max-width:768px){
+
+.portfolio-preview img{
+animation:mobileScroll 8s ease-in-out infinite alternate;
+}
+
+}
+
+@keyframes mobileScroll{
+
+0%{
+transform:translateY(0);
+}
+
+100%{
+transform:translateY(-35%);
+}
+
+}
