@@ -1415,7 +1415,7 @@ padding:80px 20px;
 }
 
 .service-section.light{
-background:#f8f9fc;
+background: rgba(255,255,255,0.03);
 }
 
 .service-list{
@@ -1439,10 +1439,12 @@ justify-content:center;
 .benefit{
 flex:1 1 280px;
 max-width:100%;
-background:white;
+background: rgba(255,255,255,0.05);
+color:#fff;
 padding:20px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
+border-radius:15px;
+backdrop-filter: blur(10px);
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .service-cta{
