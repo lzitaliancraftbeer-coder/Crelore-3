@@ -1399,3 +1399,54 @@ transform:translateY(-35%);
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+
+
+.service-hero{
+padding:120px 20px;
+text-align:center;
+}
+
+.service-hero h1{
+font-size:40px;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.service-section{
+padding:80px 20px;
+}
+
+.service-section.light{
+background:#f8f9fc;
+}
+
+.service-list{
+list-style:none;
+padding:0;
+}
+
+.service-list li{
+margin-bottom:10px;
+font-size:16px;
+}
+
+.benefits{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.benefit{
+flex:1;
+min-width:250px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.service-cta{
+text-align:center;
+padding:100px 20px;
+}
