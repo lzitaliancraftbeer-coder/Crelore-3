@@ -1368,3 +1368,34 @@ transform:translateY(-35%);
 }
 
 }
+
+.card a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+    padding: 20px;
+}
+
+.card-button{
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6C63FF;
+    transition: 0.3s;
+}
+
+.card:hover .card-button{
+    transform: translateX(6px);
+}
+
+/* HOVER PREMIUM */
+.card{
+    transition: all 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
