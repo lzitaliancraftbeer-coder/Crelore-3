@@ -1411,9 +1411,6 @@ overflow:hidden;
 font-size:42px;
 font-weight:800;
 margin-bottom:20px;
-background: linear-gradient(90deg,#6C63FF,#00D4FF);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
 }
 
 .service-hero p{
@@ -1483,4 +1480,48 @@ margin-bottom:20px;
 .service-cta a{
 font-size:16px;
 padding:14px 30px;
+}
+
+.service-card{
+flex:1 1 280px;
+max-width:100%;
+background: rgba(255,255,255,0.04);
+color:#fff;
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.service-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: radial-gradient(circle at top left, rgba(108,99,255,0.2), transparent 60%);
+opacity:0;
+transition:0.3s;
+}
+
+.service-card:hover::before{
+opacity:1;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+border:1px solid rgba(108,99,255,0.4);
+}
+
+.service-card h3{
+margin-bottom:10px;
+}
+
+.service-card p{
+opacity:0.7;
+font-size:15px;
 }
