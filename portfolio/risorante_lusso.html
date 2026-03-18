@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Essenza | Alta Cucina Italiana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0f1113;
+            --light: #f9f7f2;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .text-gold { color: var(--gold); }
+        .bg-gold { background-color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width .3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        #reservation-modal {
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="fixed w-full z-50 transition-all duration-300 py-6 px-10 flex justify-between items-center" id="navbar">
+        <div class="text-2xl font-serif tracking-widest uppercase">L'Essenza</div>
+        <nav class="hidden md:flex space-x-8 uppercase text-xs tracking-widest">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#storia" class="nav-link">La Storia</a>
+            <a href="#menu" class="nav-link">Menu</a>
+            <a href="#contatti" class="nav-link">Contatti</a>
+        </nav>
+        <button onclick="toggleModal()" class="border border-gold px-6 py-2 text-xs uppercase tracking-[0.2em] hover:bg-gold hover:text-dark transition-all duration-300">
+            Prenota
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=2000" 
+             alt="Ambiente Ristorante" class="absolute inset-0 w-full h-full object-cover">
+        
+        <div class="relative z-20 text-center px-4">
+            <span class="text-gold uppercase tracking-[0.5em] text-sm mb-4 block fade-in">Esperienza Gastronomica</span>
+            <h1 class="text-5xl md:text-8xl mb-8 fade-in">Il Gusto dell'Assoluto</h1>
+            <div class="flex justify-center fade-in">
+                <a href="#menu" class="bg-gold text-dark px-10 py-4 uppercase text-xs tracking-widest font-bold hover:bg-white transition-colors">
+                    Esplora il Menu
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7-7-7m14-8l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </div>
+    </section>
+
+    <!-- La Storia -->
+    <section id="storia" class="py-24 bg-zinc-950 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="fade-in">
+                <h2 class="text-gold text-sm uppercase tracking-[0.3em] mb-4">La Nostra Filosofia</h2>
+                <h3 class="text-4xl md:text-5xl mb-6 italic">Tradizione e Avanguardia</h3>
+                <p class="text-zinc-400 leading-relaxed mb-6 font-light">
+                    Situato nel cuore pulsante della città, L'Essenza nasce dal desiderio di elevare la materia prima a opera d'arte. Ogni ingrediente è selezionato con cura maniacale dai migliori produttori locali e internazionali.
+                </p>
+                <p class="text-zinc-400 leading-relaxed font-light italic">
+                    "La cucina non è solo cibo, è un linguaggio universale che parla al cuore attraverso i sensi." — Chef Alessandro Visconti
+                </p>
+            </div>
+            <div class="relative fade-in">
+                <div class="absolute -inset-4 border border-gold/30 translate-x-8 translate-y-8 hidden md:block"></div>
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1000" 
+                     alt="Lo Chef all'opera" class="relative z-10 w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Signature -->
+    <section id="menu" class="py-24 px-6 bg-[#0f1113]">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl mb-4 italic">Signature Dishes</h2>
+            <div class="w-20 h-px bg-gold mx-auto"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-20 gap-y-12">
+            <!-- Item 1 -->
+            <div class="flex flex-col fade-in">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-2 mb-2">
+                    <span class="text-xl font-serif">Ostriche & Oro</span>
+                    <span class="text-gold font-light">€45</span>
+                </div>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest font-light">Ostriche Gillardeau, foglia d'oro 24k, emulsione al lampone.</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="flex flex-col fade-in">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-2 mb-2">
+                    <span class="text-xl font-serif">Risotto allo Zafferano Imperiale</span>
+                    <span class="text-gold font-light">€38</span>
+                </div>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest font-light">Riso Riserva San Massimo, zafferano dell'Aquila, midollo croccante.</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="flex flex-col fade-in">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-2 mb-2">
+                    <span class="text-xl font-serif">Wagyu A5 Miyazaki</span>
+                    <span class="text-gold font-light">€95</span>
+                </div>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest font-light">Cottura su pietra lavica, tartufo nero pregiato, riduzione di Porto.</p>
+            </div>
+            <!-- Item 4 -->
+            <div class="flex flex-col fade-in">
+                <div class="flex justify-between items-end border-b border-zinc-800 pb-2 mb-2">
+                    <span class="text-xl font-serif">Sfera di Cristallo al Cioccolato</span>
+                    <span class="text-gold font-light">€28</span>
+                </div>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest font-light">Fondente 85% Ecuador, cuore di frutto della passione, oro liquido.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <div class="h-80 parallax" style="background-image: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&q=80&w=2000');">
+        <div class="w-full h-full bg-black/60 flex items-center justify-center">
+            <h3 class="text-3xl md:text-4xl italic text-white tracking-widest uppercase">Una cantina di oltre 1000 etichette</h3>
+        </div>
+    </div>
+
+    <!-- Contact & Footer -->
+    <footer id="contatti" class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <h4 class="text-gold uppercase tracking-widest text-sm mb-6">Contatti</h4>
+                <p class="text-zinc-400 font-light mb-2">Via Montenapoleone, 12</p>
+                <p class="text-zinc-400 font-light mb-2">20121 Milano (MI)</p>
+                <p class="text-zinc-400 font-light">+39 02 1234 5678</p>
+                <p class="text-zinc-400 font-light italic">info@lessenzaristorante.it</p>
+            </div>
+            <div>
+                <h4 class="text-gold uppercase tracking-widest text-sm mb-6">Orari</h4>
+                <p class="text-zinc-400 font-light mb-2">Lunedì - Sabato</p>
+                <p class="text-zinc-400 font-light mb-6">19:30 — 00:00</p>
+                <p class="text-zinc-400 font-light mb-2">Domenica</p>
+                <p class="text-zinc-400 font-light italic">Chiuso</p>
+            </div>
+            <div>
+                <h4 class="text-gold uppercase tracking-widest text-sm mb-6">Newsletter</h4>
+                <div class="flex border-b border-gold pb-2">
+                    <input type="email" placeholder="Email" class="bg-transparent outline-none w-full text-zinc-400 font-light italic">
+                    <button class="text-gold uppercase text-[10px] tracking-widest">Invia</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-20 text-[10px] uppercase tracking-[0.4em] text-zinc-600">
+            &copy; 2024 L'Essenza Ristorante. Privacy Policy.
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservation-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="bg-dark border border-gold w-full max-w-lg p-8 relative">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gold hover:text-white">&times; Chiudi</button>
+            <h3 class="text-3xl italic mb-6 text-center">Richiesta di Prenotazione</h3>
+            <form class="space-y-4" onsubmit="handleBooking(event)">
+                <input type="text" placeholder="Nome Completo" required class="w-full bg-zinc-900 border border-zinc-800 p-3 text-white focus:border-gold outline-none transition-all">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="date" required class="w-full bg-zinc-900 border border-zinc-800 p-3 text-white focus:border-gold outline-none transition-all">
+                    <input type="number" placeholder="Persone" min="1" max="10" required class="w-full bg-zinc-900 border border-zinc-800 p-3 text-white focus:border-gold outline-none transition-all">
+                </div>
+                <textarea placeholder="Note particolari (Allergie, Eventi)" class="w-full bg-zinc-900 border border-zinc-800 p-3 text-white focus:border-gold outline-none transition-all h-24"></textarea>
+                <button type="submit" class="w-full bg-gold text-dark py-4 uppercase font-bold tracking-widest hover:bg-white transition-all">Invia Richiesta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Feedback Message Box -->
+    <div id="msg-box" class="fixed bottom-10 right-10 z-[110] bg-gold text-dark px-8 py-4 hidden uppercase text-xs tracking-widest font-bold shadow-2xl">
+        Richiesta inviata con successo. Verrai ricontattato a breve.
+    </div>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navbar visibility on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/95', 'py-4', 'shadow-2xl');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'py-4', 'shadow-2xl');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Modal Toggle
+        function toggleModal() {
+            const modal = document.getElementById('reservation-modal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+            document.body.style.overflow = modal.classList.contains('hidden') ? 'auto' : 'hidden';
+        }
+
+        // Handle Booking
+        function handleBooking(e) {
+            e.preventDefault();
+            toggleModal();
+            const msgBox = document.getElementById('msg-box');
+            msgBox.classList.remove('hidden');
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
