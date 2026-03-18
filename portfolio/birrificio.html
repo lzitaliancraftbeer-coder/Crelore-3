@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LC Italian Craft Beer | Birra Artigianale d'Eccellenza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beer-gold: #ffb400;
+            --beer-amber: #d45d00;
+            --dark-bg: #121212;
+            --label-green: #2d5a27;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-bebas {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 2px;
+        }
+
+        /* Effetto Wow: Versamento Birra */
+        .beer-flow {
+            position: relative;
+            height: 100%;
+            width: 30px;
+            background: linear-gradient(to bottom, var(--beer-gold), var(--beer-amber));
+            margin: 0 auto;
+            border-radius: 0 0 20px 20px;
+            animation: pour 3s infinite ease-in-out;
+            box-shadow: 0 0 20px var(--beer-gold);
+        }
+
+        @keyframes pour {
+            0% { height: 0; opacity: 0; }
+            20% { height: 100%; opacity: 1; }
+            80% { height: 100%; opacity: 1; }
+            100% { height: 100%; opacity: 0; }
+        }
+
+        /* Animazione Brindisi */
+        .cheers-animation:hover .glass-left {
+            transform: rotate(20deg) translateX(20px);
+        }
+        .cheers-animation:hover .glass-right {
+            transform: rotate(-20deg) translateX(-20px);
+        }
+        .glass-left, .glass-right {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Parallasse Bottiglie */
+        .bottle-float {
+            animation: float 4s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-blur {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(15px);
+        }
+
+        .beer-card {
+            background: #1e1e1e;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+        .beer-card:hover {
+            border-color: var(--beer-gold);
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(255, 180, 0, 0.2);
+        }
+
+        .glitch-text:hover {
+            text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigazione -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="text-3xl font-black text-white italic tracking-tighter">LC <span class="text-[var(--beer-gold)]">CRAFT</span></div>
+            </div>
+            
+            <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest">
+                <a href="#home" class="hover:text-[var(--beer-gold)] transition">Home</a>
+                <a href="#birre" class="hover:text-[var(--beer-gold)] transition">Le Birre</a>
+                <a href="#storia" class="hover:text-[var(--beer-gold)] transition">Storia</a>
+                <a href="#contatti" class="hover:text-[var(--beer-gold)] transition">Shop</a>
+            </div>
+
+            <button class="bg-[var(--beer-gold)] text-black px-6 py-2 rounded-full font-black text-xs uppercase hover:bg-white transition">Trova un Taproom</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Decorativo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--beer-gold)]/10 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal active">
+                <h1 class="text-7xl md:text-9xl font-black leading-none mb-6">BIRRA<br><span class="text-[var(--beer-gold)]">SENZA</span><br>FILTRI.</h1>
+                <p class="text-xl opacity-60 max-w-lg mb-10 font-light leading-relaxed">Artigianale, italiana, ribelle. LC è il sapore autentico del luppolo, nato dalla passione per la sperimentazione estrema.</p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#birre" class="bg-white text-black px-10 py-5 rounded-none font-black uppercase text-lg hover:bg-[var(--beer-gold)] transition-all">Esplora la Gamma</a>
+                    <div class="flex items-center gap-4 group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white/10">
+                            <i class="fas fa-play text-[var(--beer-gold)]"></i>
+                        </div>
+                        <span class="font-bold uppercase text-sm tracking-widest">Guarda il Processo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animazione Bottiglia Centrale -->
+            <div class="relative reveal active" style="transition-delay: 0.3s;">
+                <div class="bottle-float relative z-10 mx-auto w-64 md:w-80">
+                    <!-- Placeholder Bottiglia -->
+                    <div class="bg-gradient-to-b from-[#333] to-[#111] rounded-[40px] h-[500px] md:h-[600px] shadow-2xl flex flex-col items-center p-8 border border-white/10">
+                        <div class="w-20 h-32 bg-[#222] rounded-t-3xl mb-4 border-x border-white/5"></div>
+                        <div class="w-full h-full bg-[var(--beer-gold)] rounded-2xl flex items-center justify-center text-black font-bebas text-4xl transform rotate-[-90deg]">
+                            LC - ITALIAN IPA
+                        </div>
+                    </div>
+                    <!-- Effetto versamento che parte dal collo -->
+                    <div class="absolute -top-20 left-1/2 -translate-x-1/2 h-20 w-4">
+                        <div class="beer-flow"></div>
+                    </div>
+                </div>
+                <!-- Decorazione Brindisi -->
+                <div class="absolute -bottom-10 -right-10 md:right-0 cheers-animation cursor-pointer z-20">
+                    <div class="flex gap-4">
+                        <i class="fas fa-beer text-6xl text-[var(--beer-gold)] glass-left"></i>
+                        <i class="fas fa-beer text-6xl text-[var(--beer-gold)] glass-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Gamma Birre -->
+    <section id="birre" class="py-32 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <div class="reveal">
+                    <h2 class="text-6xl font-black italic">LA NOSTRA <span class="text-[var(--beer-gold)]">SELEZIONE</span></h2>
+                    <p class="text-white/40 mt-4 uppercase tracking-[0.3em]">Dal luppolo fresco alla maturazione lenta</p>
+                </div>
+                <div class="flex gap-2 reveal">
+                    <button class="w-12 h-12 rounded-full border border-white/10 hover:bg-white hover:text-black transition"><i class="fas fa-arrow-left"></i></button>
+                    <button class="w-12 h-12 rounded-full border border-white/10 hover:bg-white hover:text-black transition"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Birra 1 -->
+                <div class="beer-card p-8 rounded-[2rem] reveal">
+                    <div class="h-64 mb-8 flex items-center justify-center relative group">
+                        <div class="absolute inset-0 bg-yellow-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fas fa-wine-bottle text-8xl text-yellow-500 relative z-10 bottle-float"></i>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-[var(--beer-gold)] font-bold text-xs uppercase tracking-widest">American IPA</span>
+                            <h3 class="text-3xl font-black mt-1">LUPPOLO MANIA</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bebas text-2xl">6.5%</p>
+                            <p class="text-[10px] opacity-40 uppercase">Alc/Vol</p>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-50 mb-8">Un'esplosione tropicale con note di mango e pompelmo. Amaro deciso, finale pulito.</p>
+                    <button class="w-full py-4 border border-white/10 font-bold uppercase text-xs hover:bg-white hover:text-black transition tracking-widest">Scopri Gusto</button>
+                </div>
+
+                <!-- Birra 2 -->
+                <div class="beer-card p-8 rounded-[2rem] reveal" style="transition-delay: 0.2s;">
+                    <div class="h-64 mb-8 flex items-center justify-center relative group">
+                        <div class="absolute inset-0 bg-orange-600/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fas fa-wine-bottle text-8xl text-orange-600 relative z-10 bottle-float" style="animation-delay: 0.5s;"></i>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Amber Ale</span>
+                            <h3 class="text-3xl font-black mt-1">RAME PURO</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bebas text-2xl">5.8%</p>
+                            <p class="text-[10px] opacity-40 uppercase">Alc/Vol</p>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-50 mb-8">Corpo maltato con sentori di caramello e crosta di pane. Morbida e avvolgente.</p>
+                    <button class="w-full py-4 border border-white/10 font-bold uppercase text-xs hover:bg-white hover:text-black transition tracking-widest">Scopri Gusto</button>
+                </div>
+
+                <!-- Birra 3 -->
+                <div class="beer-card p-8 rounded-[2rem] reveal" style="transition-delay: 0.4s;">
+                    <div class="h-64 mb-8 flex items-center justify-center relative group">
+                        <div class="absolute inset-0 bg-green-500/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fas fa-wine-bottle text-8xl text-green-500 relative z-10 bottle-float" style="animation-delay: 1s;"></i>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-green-500 font-bold text-xs uppercase tracking-widest">Pilsner</span>
+                            <h3 class="text-3xl font-black mt-1">GIARDINO ESTIVO</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bebas text-2xl">4.2%</p>
+                            <p class="text-[10px] opacity-40 uppercase">Alc/Vol</p>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-50 mb-8">Freschezza allo stato puro. Luppoli nobili europei per una bevuta quotidiana d'elite.</p>
+                    <button class="w-full py-4 border border-white/10 font-bold uppercase text-xs hover:bg-white hover:text-black transition tracking-widest">Scopri Gusto</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione "Wow": Brindisi Interattivo -->
+    <section class="py-32 bg-[var(--beer-gold)] text-black overflow-hidden relative">
+        <div class="absolute top-0 right-0 p-10 opacity-10 rotate-12">
+            <i class="fas fa-industry text-[20rem]"></i>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-7xl md:text-[10rem] font-black leading-none mb-10 glitch-text">BRINDA CON NOI</h2>
+            <div class="flex justify-center gap-12 mb-16 cheers-animation cursor-pointer">
+                <i class="fas fa-beer text-[8rem] md:text-[12rem] glass-left"></i>
+                <i class="fas fa-beer text-[8rem] md:text-[12rem] glass-right"></i>
+            </div>
+            <p class="text-2xl font-bold uppercase tracking-widest max-w-3xl mx-auto mb-12">
+                Ogni sorso racconta una storia di territorio, fatica e passione italiana.
+            </p>
+            <button class="bg-black text-white px-12 py-6 text-xl font-black uppercase hover:scale-110 transition shadow-2xl">Iscriviti al Club LC</button>
+        </div>
+    </section>
+
+    <!-- Social Feed (Instagram Concept) -->
+    <section class="py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-black">FOLLOW THE CRAFT</h2>
+                <a href="https://www.instagram.com/lcitaliancraftbeer" class="text-[var(--beer-gold)] font-bold mt-2 inline-block hover:underline">@lcitaliancraftbeer</a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+                <div class="aspect-square bg-[#222] group overflow-hidden relative">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                        <i class="fab fa-instagram text-3xl"></i>
+                    </div>
+                    <div class="w-full h-full flex items-center justify-center italic text-xs text-white/20">Post IG 1</div>
+                </div>
+                <div class="aspect-square bg-[#222] group overflow-hidden relative">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                        <i class="fab fa-instagram text-3xl"></i>
+                    </div>
+                    <div class="w-full h-full flex items-center justify-center italic text-xs text-white/20">Post IG 2</div>
+                </div>
+                <div class="aspect-square bg-[#222] group overflow-hidden relative">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                        <i class="fab fa-instagram text-3xl"></i>
+                    </div>
+                    <div class="w-full h-full flex items-center justify-center italic text-xs text-white/20">Post IG 3</div>
+                </div>
+                <div class="aspect-square bg-[#222] group overflow-hidden relative">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                        <i class="fab fa-instagram text-3xl"></i>
+                    </div>
+                    <div class="w-full h-full flex items-center justify-center italic text-xs text-white/20">Post IG 4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contatti" class="bg-black border-t border-white/10 pt-32 pb-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-20 mb-20">
+                <div class="col-span-1 lg:col-span-2">
+                    <h2 class="text-5xl font-black mb-8 italic">LC CRAFT <span class="text-[var(--beer-gold)]">BEER</span></h2>
+                    <p class="text-white/40 max-w-sm mb-10 font-medium">Portiamo la rivoluzione craft in tutta Italia. Spedizioni garantite in 24/48h con imballaggi eco-friendly.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full hover:bg-[var(--beer-gold)] hover:text-black transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full hover:bg-[var(--beer-gold)] hover:text-black transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="w-12 h-12 bg-white/5 flex items-center justify-center rounded-full hover:bg-[var(--beer-gold)] hover:text-black transition"><i class="fab fa-untappd text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest mb-8 text-white/40">Shop Online</h4>
+                    <ul class="space-y-4 font-bold text-sm">
+                        <li><a href="#" class="hover:text-[var(--beer-gold)]">Tutte le Birre</a></li>
+                        <li><a href="#" class="hover:text-[var(--beer-gold)]">Limited Edition</a></li>
+                        <li><a href="#" class="hover:text-[var(--beer-gold)]">Merchandising</a></li>
+                        <li><a href="#" class="hover:text-[var(--beer-gold)]">Abbonamenti</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest mb-8 text-white/40">Contatti</h4>
+                    <ul class="space-y-4 font-bold text-sm">
+                        <li>info@lcitaliancraft.it</li>
+                        <li>Milano, Italia</li>
+                        <li>Lavora con noi</li>
+                        <li>Politica Spedizioni</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-white/20">
+                <p>&copy; 2024 LC ITALIAN CRAFT BEER. TUTTI I DIRITTI RISERVATI.</p>
+                <div class="flex gap-8">
+                    <a href="#">Privacy</a>
+                    <a href="#">Cookie</a>
+                    <a href="#">Termini</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth Scroll per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
