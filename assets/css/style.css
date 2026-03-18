@@ -1491,3 +1491,42 @@ font-size:24px;
 }
 
 }
+
+/* SINGOLO SERVIZIO - extra */
+
+.big-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+  font-size: 3.8rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: all 0.4s ease;
+}
+
+.big-icon:hover {
+  transform: scale(1.08);
+}
+
+.check-list li {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-section .card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s;
+}
+
+.service-section .card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(37,99,235,0.25);
+}
+
