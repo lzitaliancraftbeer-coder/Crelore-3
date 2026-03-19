@@ -176,33 +176,117 @@ Cosa include il <span>servizio</span>
 </div>
 </section>
 
-<!-- CONTATTI -->
+  <!-- CONTATTI SECTION -->
 <section id="contatti" class="contact-section">
-<div class="contact-container glass">
+  <div class="contact-container glass">
+    
+    <!-- INFO -->
+    <div class="contact-info reveal">
+      <h2>Vuoi più clienti ogni mese?</h2>
+      <p>Scopri come possiamo aiutarti.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <span>hello@crelore.it</span>
+        </div>
+        <div class="contact-item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"></path>
+          </div>
+          <span>Disponibili Worldwide</span>
+        </div>
+      </div>
+    </div>
 
-<div class="contact-info">
-<h2>Vuoi più clienti ogni mese?</h2>
-<p>Scopri come possiamo aiutarti.</p>
-</div>
+    <!-- FORM -->
+    <div class="contact-form-container reveal delay-1">
+      <form onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
+        <label>Nome Completo</label>
+        <input type="text" placeholder="Mario Rossi" required>
 
-<div class="contact-form-container">
-<form onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
-<input type="text" placeholder="Nome" required>
-<input type="email" placeholder="Email" required>
-<button type="submit">Invia</button>
-</form>
-</div>
+        <label>Email</label>
+        <input type="email" placeholder="mario@azienda.it" required>
 
-</div>
+        <label>Di cosa hai bisogno?</label>
+        <select required>
+          <option>Sito Web / App</option>
+          <option>Social Media Management</option>
+          <option>Lead Generation / Ads</option>
+          <option>Altro</option>
+        </select>
+
+        <button type="submit">
+          Invia Richiesta <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+  </div>
 </section>
 
-<!-- FOOTER -->
+     <!-- Footer Premium -->
 <footer class="footer-premium">
-<div class="footer-container">
-<div class="logo-footer">CRE<span>LORE</span></div>
-<div class="footer-copy">© 2026 Crelore</div>
+  <div class="footer-container">
+
+    <!-- Logo -->
+    <div class="logo-footer">
+      CRE<span>LORE</span>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#" class="social-icon instagram" aria-label="Instagram">
+        <!-- Instagram SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.347 3.608 1.322.975.975 1.26 2.243 1.322 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.365-.347 2.633-1.322 3.608-.975.975-2.243 1.26-3.608 1.322-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.365-.062-2.633-.347-3.608-1.322-.975-.975-1.26-2.243-1.322-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.365.347-2.633 1.322-3.608.975-.975 2.243-1.26 3.608-1.322C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.741 0 8.332.012 7.052.07 5.767.128 4.603.39 3.678 1.316 2.752 2.242 2.49 3.406 2.432 4.691.012 8.332 0 8.741 0 12s.012 3.668.07 4.947c.058 1.285.32 2.449 1.246 3.375.926.926 2.09 1.188 3.375 1.246C8.332 23.988 8.741 24 12 24s3.668-.012 4.947-.07c1.285-.058 2.449-.32 3.375-1.246.926-.926 1.188-2.09 1.246-3.375C23.988 15.668 24 15.259 24 12s-.012-3.668-.07-4.947c-.058-1.285-.32-2.449-1.246-3.375C21.758.39 20.594.128 19.309.07 18.03.012 17.621 0 14.362 0h-4.724z"/>
+          <circle cx="12" cy="12" r="3.2"/>
+          <circle cx="18.4" cy="5.6" r="1.44"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon facebook" aria-label="Facebook">
+        <!-- Facebook SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M22.675 0H1.325C.594 0 .002.592.002 1.323v21.353C.002 23.406.594 24 1.325 24h11.497v-9.294H9.691V11.06h3.13V8.41c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.588l-.467 3.646h-3.121V24h6.117C23.406 24 24 23.406 24 22.676V1.324C24 .592 23.406 0 22.675 0z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+        <!-- LinkedIn SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M22.23 0H1.77C.792 0 0 .774 0 1.728V22.27C0 23.226.792 24 1.77 24H22.23C23.208 24 24 23.226 24 22.27V1.728C24 .774 23.208 0 22.23 0zM7.12 20.452H3.563V9.039H7.12v11.413zM5.343 7.605a2.098 2.098 0 1 1 0-4.196 2.098 2.098 0 0 1 0 4.196zM20.452 20.452h-3.558v-5.568c0-1.327-.026-3.036-1.852-3.036-1.853 0-2.135 1.445-2.135 2.938v5.666H9.434V9.039h3.414v1.558h.049c.476-.9 1.637-1.85 3.368-1.85 3.602 0 4.266 2.37 4.266 5.455v6.249z"/>
+        </svg>
+      </a>
+    </div>
+    
+    <div class="footer-links">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="cookie-policy.html">Cookie Policy</a>
 </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      © 2026 Crelore — Automazioni AI, Marketing Digitale e Sviluppo Web
+    </div>
+
+  </div>
 </footer>
+
+      <!-- COOKIE BANNER -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <p>
+      Utilizziamo cookie tecnici e, previo consenso, cookie di analisi per migliorare l’esperienza.
+      Leggi la nostra 
+      <a href="privacy-policy.html">Privacy Policy</a> e 
+      <a href="cookie-policy.html">Cookie Policy</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button class="btn-accept" onclick="acceptCookies()">Accetta</button>
+      <button class="btn-reject" onclick="rejectCookies()">Rifiuta</button>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/main.js"></script>
