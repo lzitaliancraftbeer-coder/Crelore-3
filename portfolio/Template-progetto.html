@@ -5,106 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page Ristorante | CreLore Portfolio</title>
     <meta name="description" content="Scopri il progetto Landing Page Ristorante realizzato da CreLore: design responsive, UX/UI ottimizzata e performance elevate.">
+
     <!-- FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- FONTAWESOME -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- CSS PERSONALIZZATO -->
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner" class="cookie-banner">
-  <div class="cookie-content">
-    <p>
-      Utilizziamo cookie tecnici e, previo consenso, cookie di analisi per migliorare l’esperienza.
-      Leggi la nostra 
-      <a href="../privacy-policy.html">Privacy Policy</a> e 
-      <a href="../cookie-policy.html">Cookie Policy</a>.
-    </p>
-    <div class="cookie-buttons">
-      <button class="btn-accept" onclick="acceptCookies()">Accetta</button>
-      <button class="btn-reject" onclick="rejectCookies()">Rifiuta</button>
-    </div>
-  </div>
-</div>
+<body>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container">
-    <a class="navbar-brand" href="index.html">CRELORE</a>
+    <a class="navbar-brand" href="../index.html">CRELORE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
-        <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link btn-primary-nav" href="contatti.html">Contatti</a></li>
+        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../servizi2.html">Servizi</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="../FAQ.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link btn-primary-nav" href="../contatti.html">Contatti</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO PROGETTO -->
-<section class="hero">
+<!-- HERO -->
+<section class="hero text-center">
     <h1 class="gradient-text">Landing Page Ristorante</h1>
     <p class="hero-text">Design moderno, UX/UI ottimizzata e performance elevate per aumentare le conversioni.</p>
-    <a href="portfolio.html" class="btn-glass mt-3">Torna al Portfolio</a>
+    <a href="../portfolio.html" class="btn-glass mt-3">Torna al Portfolio</a>
 </section>
 
-<!-- DETTAGLI PROGETTO -->
+<!-- ANTEPRIMA PROGETTO -->
+<section class="project-preview reveal">
+  <div class="container text-center">
+
+    <img src="../assets/img/progetto-ristorante.jpg" 
+         alt="Anteprima progetto ristorante" 
+         class="img-fluid rounded shadow-lg mb-4">
+
+    <a href="https://lzitaliancraftbeer-coder.github.io/crelore-site/index.html#contact" 
+       target="_blank" 
+       class="project-button">
+       Apri il progetto live
+    </a>
+
+  </div>
+</section>
+
+<!-- DETTAGLI -->
 <section class="project-details reveal">
     <div class="container">
-        <h2 class="section-title text-center mb-5">Dettagli del progetto</h2>
+
+        <h2 class="section-title text-center mb-5">
+          Dettagli del <span>progetto</span>
+        </h2>
+
         <div class="row g-4 justify-content-center">
 
           <div class="col-lg-4 col-md-6">
             <div class="card text-center h-100">
-              <div class="icon blue mx-auto my-3"><i class="fa-solid fa-mobile-screen"></i></div>
+              <div class="icon blue mx-auto my-3">
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
               <h4>Design Responsive</h4>
-              <p>Layout ottimizzato per desktop, tablet e mobile, con esperienza utente fluida.</p>
+              <p>Esperienza perfetta su smartphone, tablet e desktop con layout fluido e moderno.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
             <div class="card text-center h-100">
-              <div class="icon purple mx-auto my-3"><i class="fa-solid fa-bolt"></i></div>
+              <div class="icon purple mx-auto my-3">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
               <h4>Performance & SEO</h4>
-              <p>Velocità di caricamento ottimale e struttura SEO-friendly per Google.</p>
+              <p>Sito veloce e ottimizzato per Google per aumentare traffico e visibilità.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
             <div class="card text-center h-100">
-              <div class="icon green mx-auto my-3"><i class="fa-solid fa-palette"></i></div>
-              <h4>UX/UI Curata</h4>
-              <p>Interfaccia intuitiva e design moderno per guidare le conversioni.</p>
+              <div class="icon green mx-auto my-3">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <h4>UX/UI Strategica</h4>
+              <p>Struttura progettata per guidare l’utente e aumentare le conversioni.</p>
             </div>
           </div>
 
         </div>
-        <div class="text-center mt-4">
-          <a href="https://lzitaliancraftbeer-coder.github.io/crelore-site/index.html#contact" target="_blank" class="project-button">Apri il progetto</a>
-        </div>
+
     </div>
 </section>
 
-<!-- ALTRI PROGETTI / CORRELATI -->
+<!-- ALTRI PROGETTI -->
 <section class="related-projects reveal">
   <div class="container">
-    <h2 class="section-title text-center mb-5">Altri progetti</h2>
+
+    <h2 class="section-title text-center mb-5">
+      Altri <span>progetti</span>
+    </h2>
+
     <div class="row g-4 justify-content-center">
 
       <div class="col-lg-4 col-md-6">
         <a href="../portfolio/ecommerce-fashion.html" class="portfolio-card">
-          <img src="../assets/img/progetto2.jpg" alt="Ecommerce Fashion" class="img-fluid">
-          <div class="portfolio-content mt-2 text-center">
+          <img src="../assets/img/progetto2.jpg" class="img-fluid">
+          <div class="portfolio-content text-center mt-2">
             <h3>E-commerce Fashion</h3>
             <p>Ecommerce • UX/UI</p>
           </div>
@@ -113,8 +132,8 @@
 
       <div class="col-lg-4 col-md-6">
         <a href="../portfolio/sito-ai.html" class="portfolio-card">
-          <img src="../assets/img/progetto3.jpg" alt="Sito AI" class="img-fluid">
-          <div class="portfolio-content mt-2 text-center">
+          <img src="../assets/img/progetto3.jpg" class="img-fluid">
+          <div class="portfolio-content text-center mt-2">
             <h3>Sito Azienda AI</h3>
             <p>Web Design • Automazioni</p>
           </div>
@@ -123,8 +142,8 @@
 
       <div class="col-lg-4 col-md-6">
         <a href="../portfolio/landing-ristorante.html" class="portfolio-card">
-          <img src="../assets/img/progetto1.jpg" alt="Landing Ristorante" class="img-fluid">
-          <div class="portfolio-content mt-2 text-center">
+          <img src="../assets/img/progetto1.jpg" class="img-fluid">
+          <div class="portfolio-content text-center mt-2">
             <h3>Landing Page Ristorante</h3>
             <p>Web Design • UX/UI</p>
           </div>
@@ -132,6 +151,7 @@
       </div>
 
     </div>
+
   </div>
 </section>
 
@@ -139,20 +159,19 @@
 <footer class="footer-premium">
   <div class="footer-container">
     <div class="logo-footer">CRE<span>LORE</span></div>
-    <div class="social-icons">
-      <!-- social SVG... -->
-    </div>
+
     <div class="footer-links">
       <a href="../privacy-policy.html">Privacy Policy</a>
       <a href="../cookie-policy.html">Cookie Policy</a>
     </div>
-    <div class="footer-copy">© 2026 Crelore — Innovazione Digitale</div>
+
+    <div class="footer-copy">
+      © 2026 Crelore — Innovazione Digitale
+    </div>
   </div>
 </footer>
 
-<!-- JS BOOTSTRAP -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/js/main.js"></script>
 
 </body>
 </html>
