@@ -290,7 +290,9 @@ Alcuni progetti digitali sviluppati dal team Crelore tra sviluppo web, strategie
     </div>
 
     <div class="contact-form-container reveal delay-1">
-      <form onsubmit="event.preventDefault(); alert('Richiesta inviata!');">
+      <form action="https://formsubmit.co/info@crelore.it" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://www.crelore.it/grazie.html">
         <label>Nome Completo</label>
         <input type="text" placeholder="Mario Rossi" required>
         <label>Email</label>
